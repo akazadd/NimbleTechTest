@@ -37,7 +37,7 @@ class LoginViewModel {
             return
         }
         
-        if let password = password, !password.isEmpty {
+        if let password = password, password.isEmpty {
             completion(false, InputErrorMessage.emptyPassword)
             
             return
@@ -46,7 +46,7 @@ class LoginViewModel {
         completion(true, nil)
     }
     
-    func login(_ requestInfo: LoginRequestInfo) {
+    func login(_ requestInfo: LoginRequestInfo, competion: @escaping (Result<Bool, Error>) -> Void) {
         let urlString = Constants.baseUrl.rawValue
         
         let postParameters = ["grant_type": GrantType.password.rawValue,
@@ -63,7 +63,7 @@ class LoginViewModel {
                 if failure == .accessTokenExpired {
                     self.handleAccessTokenExpired {
                         
-                        //Call original func here
+                        //Call main function here
                         
                     }
                 }

@@ -22,6 +22,7 @@ enum Constants: String {
 
 enum GrantType: String {
     case password = "password"
+    case refreshToken = "refresh_token"
 }
 
 class ApiManager {
@@ -96,7 +97,7 @@ class ApiManager {
         
         let refreshTokenUrl = Constants.baseUrl.rawValue
         
-        let parameters = ["grant_type": "refresh_token",
+        let parameters = ["grant_type": GrantType.refreshToken.rawValue,
                           "refresh_token": refreshToken,
                           "client_id": Constants.clientId.rawValue,
                           "client_secret": Constants.clientSecret.rawValue]
@@ -112,7 +113,10 @@ class ApiManager {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = try? JSONSerialization.data(withJSONObject: parameters)
         
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+        let task = URLSession.shared.dataTask(with: request) { [weak self] (data, response, error) in
+            
+            guard let self = self else { return }
+            
             if let _ = error {
                 completion(.failure(.networkError))
                 
@@ -129,7 +133,7 @@ class ApiManager {
                 let decoder = JSONDecoder()
                 let decodedData = try decoder.decode(TokenResponse.self, from: data)
                 self.accessToken = decodedData.attributes?.accessToken
-                
+                self.saveRefreshToken(decodedData.attributes?.refreshToken ?? "")
                 completion(.success(()))
             } catch {
                 completion(.failure(.accessTokenExpired))
