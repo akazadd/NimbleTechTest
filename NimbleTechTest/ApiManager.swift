@@ -14,17 +14,17 @@ enum APIError: Error {
     //more error case as needed
 }
 
+enum Constants: String {
+    case baseUrl = "https://survey-api.nimblehq.co/api/v1/oauth/token"
+    case clientId = "ofzl-2h5ympKa0WqqTzqlVJUiRsxmXQmt5tkgrlWnOE"
+    case clientSecret = "lMQb900L-mTeU-FVTCwyhjsfBwRCxwwbCitPob96cuU"
+}
+
 class ApiManager {
     private let keychain = Keychain(service: "com.akazad.app.refreshToken")
     
     private let refreshTokenKey = "refreshToken"
     private var accessToken: String?
-    
-    enum Constants: String {
-        case baseUrl = "https://survey-api.nimblehq.co/api/v1/oauth/token"
-        case clientId = "ofzl-2h5ympKa0WqqTzqlVJUiRsxmXQmt5tkgrlWnOE"
-        case clientSecret = "lMQb900L-mTeU-FVTCwyhjsfBwRCxwwbCitPob96cuU"
-    }
     
     func callApi<T: Codable>(urlString: String,
                              method: String,
