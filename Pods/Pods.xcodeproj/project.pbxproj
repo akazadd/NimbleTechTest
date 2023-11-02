@@ -1,0 +1,960 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0441B3E976E5F55E22731AECFF0DBA88 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1A8D4AA4DF9DABA6B3E0870FA4FF211 /* Keychain.swift */; };
+		0B73B0BDC0CF99E61841AEA803F12FA4 /* Pods-NimbleTechTestTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A27424406529C987C4F6E62A98A920 /* Pods-NimbleTechTestTests-dummy.m */; };
+		0FFA0B4C28417B9D34F426FA02E94E11 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		202912CACC222B7ACBDF4F028C1F7DDC /* Pods-NimbleTechTest-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 434467781ED1D759C3701DE54B110EC9 /* Pods-NimbleTechTest-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		30CFBD30450B44D782E8373144A67473 /* Pods-NimbleTechTest-NimbleTechTestUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B5443D428C2FA5F4C7FCF19DE04C862 /* Pods-NimbleTechTest-NimbleTechTestUITests-dummy.m */; };
+		3959A50A34FC2335C0EC49DD3A6DD1B1 /* Pods-NimbleTechTest-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0BC1CE9302238544707A041A7B55AB53 /* Pods-NimbleTechTest-dummy.m */; };
+		3C9692D6851BC032645C85E3AEC25BAE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		4AEB48FE18565A59266480250E7C3FEA /* KeychainAccess-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF486576E24017DD9D235328B54E867 /* KeychainAccess-dummy.m */; };
+		5BF206EF6A08541F9003493A2D82435F /* Pods-NimbleTechTest-NimbleTechTestUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AB8801058EA7CCBC53FDCBA6D6AB9C4A /* Pods-NimbleTechTest-NimbleTechTestUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C47A1C638C0E97C4ECCBD18FD494BB34 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		C55526A627E421B85CD6ADDBC1BD284C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		EEADFC5C1C5EC6E3E20506B8E069931D /* KeychainAccess-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9FC0288C9AA4507A83FACB1C4D148A45 /* KeychainAccess-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F2C527429E2B0900EC5E2481B9E95541 /* Pods-NimbleTechTestTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C424D30B4EF2D93DFB1BB23D3E7ED40 /* Pods-NimbleTechTestTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		863AA4398EFB019912C6ADBDB9E42C2B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 615C831BCE925ED486B225B87E44926D;
+			remoteInfo = KeychainAccess;
+		};
+		D3CA74D9F918C4906C0C64E83CAE1DEA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A054ACE7FB2626139E0D3ACB131D32D2;
+			remoteInfo = "Pods-NimbleTechTest";
+		};
+		D7FC37BC3633530A4E4701655D61584C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 615C831BCE925ED486B225B87E44926D;
+			remoteInfo = KeychainAccess;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		029494BEECAFB6F0777C09B5A89C7461 /* Pods-NimbleTechTest.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-NimbleTechTest.modulemap"; sourceTree = "<group>"; };
+		0728D8A7C217AC16DF5FD78BE25C084B /* Pods-NimbleTechTest-NimbleTechTestUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-NimbleTechTest-NimbleTechTestUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		0BC1CE9302238544707A041A7B55AB53 /* Pods-NimbleTechTest-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-NimbleTechTest-dummy.m"; sourceTree = "<group>"; };
+		11279AC991C25847DCF259D5CB18E4AA /* Pods-NimbleTechTest-NimbleTechTestUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NimbleTechTest-NimbleTechTestUITests.release.xcconfig"; sourceTree = "<group>"; };
+		1800A801B1CA1DB6872C6E3BC8B8BF5E /* Pods-NimbleTechTestTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NimbleTechTestTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		24B6054C7C3AC655A00DB0268A2DEA02 /* Pods-NimbleTechTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NimbleTechTest.release.xcconfig"; sourceTree = "<group>"; };
+		3437CAB32341717C703DA1676FD78260 /* Pods-NimbleTechTest-NimbleTechTestUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NimbleTechTest-NimbleTechTestUITests-Info.plist"; sourceTree = "<group>"; };
+		37A2CF6FCC8B7F6605502A244D00CBD8 /* KeychainAccess-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "KeychainAccess-Info.plist"; sourceTree = "<group>"; };
+		38CDCF4A843036709A0E2F808B76CE15 /* Pods-NimbleTechTest-NimbleTechTestUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NimbleTechTest-NimbleTechTestUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		3AF486576E24017DD9D235328B54E867 /* KeychainAccess-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KeychainAccess-dummy.m"; sourceTree = "<group>"; };
+		3B09C29E034224722299202F191C5357 /* Pods_NimbleTechTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_NimbleTechTest.framework; path = "Pods-NimbleTechTest.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BEF80667A4136A923D3523F0C90115E /* Pods-NimbleTechTest-NimbleTechTestUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NimbleTechTest-NimbleTechTestUITests-frameworks.sh"; sourceTree = "<group>"; };
+		3C424D30B4EF2D93DFB1BB23D3E7ED40 /* Pods-NimbleTechTestTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-NimbleTechTestTests-umbrella.h"; sourceTree = "<group>"; };
+		434467781ED1D759C3701DE54B110EC9 /* Pods-NimbleTechTest-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-NimbleTechTest-umbrella.h"; sourceTree = "<group>"; };
+		4B17DF9B6609F7460D4FBA374EE683BA /* Pods-NimbleTechTest-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NimbleTechTest-frameworks.sh"; sourceTree = "<group>"; };
+		4CA0EF766484B6BFB25AB06C2B44B719 /* Pods-NimbleTechTestTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-NimbleTechTestTests.modulemap"; sourceTree = "<group>"; };
+		50E0C1D2D943DC0C27E07CD85D66F1F7 /* Pods-NimbleTechTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NimbleTechTestTests.release.xcconfig"; sourceTree = "<group>"; };
+		54E66D10859E7FCBB2FCC5C324C6ADA5 /* Pods-NimbleTechTestTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-NimbleTechTestTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		62B1C710FAB1F9B31FFD9B81C91FA12E /* Pods-NimbleTechTest-NimbleTechTestUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NimbleTechTest-NimbleTechTestUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		65D166DC4A6D9F7BA3E877E59ABB57E1 /* Pods-NimbleTechTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NimbleTechTest.debug.xcconfig"; sourceTree = "<group>"; };
+		6B5443D428C2FA5F4C7FCF19DE04C862 /* Pods-NimbleTechTest-NimbleTechTestUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-NimbleTechTest-NimbleTechTestUITests-dummy.m"; sourceTree = "<group>"; };
+		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		75E063B922288CBDD962E170AE99FEBE /* Pods-NimbleTechTest-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-NimbleTechTest-acknowledgements.markdown"; sourceTree = "<group>"; };
+		791B9BCA36BBA2599BE7991B02FEC4ED /* Pods_NimbleTechTestTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_NimbleTechTestTests.framework; path = "Pods-NimbleTechTestTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		913AC39C6F0F0EE58B35D25120ACD49D /* Pods-NimbleTechTest-NimbleTechTestUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-NimbleTechTest-NimbleTechTestUITests.modulemap"; sourceTree = "<group>"; };
+		96DC66190C3A6DD91843FC5D02D5F998 /* Pods-NimbleTechTestTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NimbleTechTestTests-Info.plist"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9FC0288C9AA4507A83FACB1C4D148A45 /* KeychainAccess-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KeychainAccess-umbrella.h"; sourceTree = "<group>"; };
+		AB8801058EA7CCBC53FDCBA6D6AB9C4A /* Pods-NimbleTechTest-NimbleTechTestUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-NimbleTechTest-NimbleTechTestUITests-umbrella.h"; sourceTree = "<group>"; };
+		BC127FDFA3EA9FE1D102F78FC0781B27 /* KeychainAccess.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = KeychainAccess.modulemap; sourceTree = "<group>"; };
+		C1A8D4AA4DF9DABA6B3E0870FA4FF211 /* Keychain.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Keychain.swift; path = Lib/KeychainAccess/Keychain.swift; sourceTree = "<group>"; };
+		D749F44C3F5D1046BF42D4E05BF66E72 /* KeychainAccess.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KeychainAccess.xcconfig; sourceTree = "<group>"; };
+		D7A27424406529C987C4F6E62A98A920 /* Pods-NimbleTechTestTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-NimbleTechTestTests-dummy.m"; sourceTree = "<group>"; };
+		DA26A50FF5B2F80F552505F1C5ACE1FE /* Pods_NimbleTechTest_NimbleTechTestUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_NimbleTechTest_NimbleTechTestUITests.framework; path = "Pods-NimbleTechTest-NimbleTechTestUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8EE7F078656FABB8F6821D10FF994BB /* KeychainAccess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = KeychainAccess.framework; path = KeychainAccess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED736E6FF5458CB1205BEC3F263D2B40 /* KeychainAccess-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KeychainAccess-prefix.pch"; sourceTree = "<group>"; };
+		EF308B5769B0BF5342A4132FEA174816 /* Pods-NimbleTechTest-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NimbleTechTest-Info.plist"; sourceTree = "<group>"; };
+		F182573B2B1D79BAABD6A1B1A4F110C6 /* Pods-NimbleTechTestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NimbleTechTestTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F58C216245959CB5C8DD07A804736418 /* Pods-NimbleTechTest-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NimbleTechTest-acknowledgements.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		650C7443B8AC940185D35EC8F098AD29 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3C9692D6851BC032645C85E3AEC25BAE /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7668D0A8468B5894E555ECAA4EC50BC1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C47A1C638C0E97C4ECCBD18FD494BB34 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3E081282010CC743164F0D94998E83A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0FFA0B4C28417B9D34F426FA02E94E11 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC9FA986F1A1371440A9913AD48CB28F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C55526A627E421B85CD6ADDBC1BD284C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1822CF174BA8C3BC1C6A1BCD70C74D9E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				21FB2FA785D073B5E18E48DDEE0CE582 /* KeychainAccess */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		21FB2FA785D073B5E18E48DDEE0CE582 /* KeychainAccess */ = {
+			isa = PBXGroup;
+			children = (
+				C1A8D4AA4DF9DABA6B3E0870FA4FF211 /* Keychain.swift */,
+				7E9D0A0E34A8A042026C00542AFBF024 /* Support Files */,
+			);
+			name = KeychainAccess;
+			path = KeychainAccess;
+			sourceTree = "<group>";
+		};
+		2B73C4E9557E0F7ED545AE9DB7878DD5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E8EE7F078656FABB8F6821D10FF994BB /* KeychainAccess.framework */,
+				3B09C29E034224722299202F191C5357 /* Pods_NimbleTechTest.framework */,
+				DA26A50FF5B2F80F552505F1C5ACE1FE /* Pods_NimbleTechTest_NimbleTechTestUITests.framework */,
+				791B9BCA36BBA2599BE7991B02FEC4ED /* Pods_NimbleTechTestTests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		38C5B47B360B976318A8E27742AECC90 /* Pods-NimbleTechTestTests */ = {
+			isa = PBXGroup;
+			children = (
+				4CA0EF766484B6BFB25AB06C2B44B719 /* Pods-NimbleTechTestTests.modulemap */,
+				54E66D10859E7FCBB2FCC5C324C6ADA5 /* Pods-NimbleTechTestTests-acknowledgements.markdown */,
+				1800A801B1CA1DB6872C6E3BC8B8BF5E /* Pods-NimbleTechTestTests-acknowledgements.plist */,
+				D7A27424406529C987C4F6E62A98A920 /* Pods-NimbleTechTestTests-dummy.m */,
+				96DC66190C3A6DD91843FC5D02D5F998 /* Pods-NimbleTechTestTests-Info.plist */,
+				3C424D30B4EF2D93DFB1BB23D3E7ED40 /* Pods-NimbleTechTestTests-umbrella.h */,
+				F182573B2B1D79BAABD6A1B1A4F110C6 /* Pods-NimbleTechTestTests.debug.xcconfig */,
+				50E0C1D2D943DC0C27E07CD85D66F1F7 /* Pods-NimbleTechTestTests.release.xcconfig */,
+			);
+			name = "Pods-NimbleTechTestTests";
+			path = "Target Support Files/Pods-NimbleTechTestTests";
+			sourceTree = "<group>";
+		};
+		38DDE5C40FB046E5DE9DE12794E909C1 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				CC448E3BF94595AF88EB4D711817BFA2 /* Pods-NimbleTechTest */,
+				81167203C3D43CF20A31916D213A40A0 /* Pods-NimbleTechTest-NimbleTechTestUITests */,
+				38C5B47B360B976318A8E27742AECC90 /* Pods-NimbleTechTestTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		7E9D0A0E34A8A042026C00542AFBF024 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				BC127FDFA3EA9FE1D102F78FC0781B27 /* KeychainAccess.modulemap */,
+				D749F44C3F5D1046BF42D4E05BF66E72 /* KeychainAccess.xcconfig */,
+				3AF486576E24017DD9D235328B54E867 /* KeychainAccess-dummy.m */,
+				37A2CF6FCC8B7F6605502A244D00CBD8 /* KeychainAccess-Info.plist */,
+				ED736E6FF5458CB1205BEC3F263D2B40 /* KeychainAccess-prefix.pch */,
+				9FC0288C9AA4507A83FACB1C4D148A45 /* KeychainAccess-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/KeychainAccess";
+			sourceTree = "<group>";
+		};
+		81167203C3D43CF20A31916D213A40A0 /* Pods-NimbleTechTest-NimbleTechTestUITests */ = {
+			isa = PBXGroup;
+			children = (
+				913AC39C6F0F0EE58B35D25120ACD49D /* Pods-NimbleTechTest-NimbleTechTestUITests.modulemap */,
+				0728D8A7C217AC16DF5FD78BE25C084B /* Pods-NimbleTechTest-NimbleTechTestUITests-acknowledgements.markdown */,
+				38CDCF4A843036709A0E2F808B76CE15 /* Pods-NimbleTechTest-NimbleTechTestUITests-acknowledgements.plist */,
+				6B5443D428C2FA5F4C7FCF19DE04C862 /* Pods-NimbleTechTest-NimbleTechTestUITests-dummy.m */,
+				3BEF80667A4136A923D3523F0C90115E /* Pods-NimbleTechTest-NimbleTechTestUITests-frameworks.sh */,
+				3437CAB32341717C703DA1676FD78260 /* Pods-NimbleTechTest-NimbleTechTestUITests-Info.plist */,
+				AB8801058EA7CCBC53FDCBA6D6AB9C4A /* Pods-NimbleTechTest-NimbleTechTestUITests-umbrella.h */,
+				62B1C710FAB1F9B31FFD9B81C91FA12E /* Pods-NimbleTechTest-NimbleTechTestUITests.debug.xcconfig */,
+				11279AC991C25847DCF259D5CB18E4AA /* Pods-NimbleTechTest-NimbleTechTestUITests.release.xcconfig */,
+			);
+			name = "Pods-NimbleTechTest-NimbleTechTestUITests";
+			path = "Target Support Files/Pods-NimbleTechTest-NimbleTechTestUITests";
+			sourceTree = "<group>";
+		};
+		CC448E3BF94595AF88EB4D711817BFA2 /* Pods-NimbleTechTest */ = {
+			isa = PBXGroup;
+			children = (
+				029494BEECAFB6F0777C09B5A89C7461 /* Pods-NimbleTechTest.modulemap */,
+				75E063B922288CBDD962E170AE99FEBE /* Pods-NimbleTechTest-acknowledgements.markdown */,
+				F58C216245959CB5C8DD07A804736418 /* Pods-NimbleTechTest-acknowledgements.plist */,
+				0BC1CE9302238544707A041A7B55AB53 /* Pods-NimbleTechTest-dummy.m */,
+				4B17DF9B6609F7460D4FBA374EE683BA /* Pods-NimbleTechTest-frameworks.sh */,
+				EF308B5769B0BF5342A4132FEA174816 /* Pods-NimbleTechTest-Info.plist */,
+				434467781ED1D759C3701DE54B110EC9 /* Pods-NimbleTechTest-umbrella.h */,
+				65D166DC4A6D9F7BA3E877E59ABB57E1 /* Pods-NimbleTechTest.debug.xcconfig */,
+				24B6054C7C3AC655A00DB0268A2DEA02 /* Pods-NimbleTechTest.release.xcconfig */,
+			);
+			name = "Pods-NimbleTechTest";
+			path = "Target Support Files/Pods-NimbleTechTest";
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				1822CF174BA8C3BC1C6A1BCD70C74D9E /* Pods */,
+				2B73C4E9557E0F7ED545AE9DB7878DD5 /* Products */,
+				38DDE5C40FB046E5DE9DE12794E909C1 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				578452D2E740E91742655AC8F1636D1F /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		39CC3E71CEA7805FCA03E3A1CC052EEA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EEADFC5C1C5EC6E3E20506B8E069931D /* KeychainAccess-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD6EADAC610783C6FB0A92AB1F09A6DE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BF206EF6A08541F9003493A2D82435F /* Pods-NimbleTechTest-NimbleTechTestUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFA342637B673FDC8F31BD76BBD5D024 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				202912CACC222B7ACBDF4F028C1F7DDC /* Pods-NimbleTechTest-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D3C22CE4FCADFD57FDF391716506AC50 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2C527429E2B0900EC5E2481B9E95541 /* Pods-NimbleTechTestTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		13AD63654D93CD142F459BC050DE60EC /* Pods-NimbleTechTestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4B2E57E30CBC6CCC4A921C3EE2F4AC5 /* Build configuration list for PBXNativeTarget "Pods-NimbleTechTestTests" */;
+			buildPhases = (
+				D3C22CE4FCADFD57FDF391716506AC50 /* Headers */,
+				E13B04E447303941D6588A8DA24E504C /* Sources */,
+				A3E081282010CC743164F0D94998E83A /* Frameworks */,
+				91F7F6BE560D4FCFF49DE8DC5C057561 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				52FC3C9DB61460B0A8CA9A2978AACB84 /* PBXTargetDependency */,
+			);
+			name = "Pods-NimbleTechTestTests";
+			productName = "Pods-NimbleTechTestTests";
+			productReference = 791B9BCA36BBA2599BE7991B02FEC4ED /* Pods_NimbleTechTestTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		38B237AD8F1013880F3500A386A9CA5F /* Pods-NimbleTechTest-NimbleTechTestUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D12B6E97A9D821DFE5DD24D9A1D0AE33 /* Build configuration list for PBXNativeTarget "Pods-NimbleTechTest-NimbleTechTestUITests" */;
+			buildPhases = (
+				BD6EADAC610783C6FB0A92AB1F09A6DE /* Headers */,
+				A3BB20545A2863AAF9DE413A8280D8FC /* Sources */,
+				EC9FA986F1A1371440A9913AD48CB28F /* Frameworks */,
+				950FE20E843EDDB69B99ACA64BB48848 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				02D3B20D966E5C2D8382AAFE8AFFAA4F /* PBXTargetDependency */,
+			);
+			name = "Pods-NimbleTechTest-NimbleTechTestUITests";
+			productName = "Pods-NimbleTechTest-NimbleTechTestUITests";
+			productReference = DA26A50FF5B2F80F552505F1C5ACE1FE /* Pods_NimbleTechTest_NimbleTechTestUITests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		615C831BCE925ED486B225B87E44926D /* KeychainAccess */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4BEE926243448802ACA6F07A75D9C025 /* Build configuration list for PBXNativeTarget "KeychainAccess" */;
+			buildPhases = (
+				39CC3E71CEA7805FCA03E3A1CC052EEA /* Headers */,
+				C4DE4004EE1661FE4BC4E6C40415F599 /* Sources */,
+				7668D0A8468B5894E555ECAA4EC50BC1 /* Frameworks */,
+				AE292B4411627ABE21EB769134C1E8BB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KeychainAccess;
+			productName = KeychainAccess;
+			productReference = E8EE7F078656FABB8F6821D10FF994BB /* KeychainAccess.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A054ACE7FB2626139E0D3ACB131D32D2 /* Pods-NimbleTechTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 37C98536A556ABFF8F08483F030ADCA9 /* Build configuration list for PBXNativeTarget "Pods-NimbleTechTest" */;
+			buildPhases = (
+				CFA342637B673FDC8F31BD76BBD5D024 /* Headers */,
+				A03E208CE7CC6AD2DA424160C799602E /* Sources */,
+				650C7443B8AC940185D35EC8F098AD29 /* Frameworks */,
+				F9FB17738436334708480F6865BBAC3F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A1C43ABA4D5740E4C2CFAC3CB7EC0AEE /* PBXTargetDependency */,
+			);
+			name = "Pods-NimbleTechTest";
+			productName = "Pods-NimbleTechTest";
+			productReference = 3B09C29E034224722299202F191C5357 /* Pods_NimbleTechTest.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 2B73C4E9557E0F7ED545AE9DB7878DD5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				615C831BCE925ED486B225B87E44926D /* KeychainAccess */,
+				A054ACE7FB2626139E0D3ACB131D32D2 /* Pods-NimbleTechTest */,
+				38B237AD8F1013880F3500A386A9CA5F /* Pods-NimbleTechTest-NimbleTechTestUITests */,
+				13AD63654D93CD142F459BC050DE60EC /* Pods-NimbleTechTestTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		91F7F6BE560D4FCFF49DE8DC5C057561 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		950FE20E843EDDB69B99ACA64BB48848 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE292B4411627ABE21EB769134C1E8BB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9FB17738436334708480F6865BBAC3F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A03E208CE7CC6AD2DA424160C799602E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3959A50A34FC2335C0EC49DD3A6DD1B1 /* Pods-NimbleTechTest-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3BB20545A2863AAF9DE413A8280D8FC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30CFBD30450B44D782E8373144A67473 /* Pods-NimbleTechTest-NimbleTechTestUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4DE4004EE1661FE4BC4E6C40415F599 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0441B3E976E5F55E22731AECFF0DBA88 /* Keychain.swift in Sources */,
+				4AEB48FE18565A59266480250E7C3FEA /* KeychainAccess-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E13B04E447303941D6588A8DA24E504C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B73B0BDC0CF99E61841AEA803F12FA4 /* Pods-NimbleTechTestTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		02D3B20D966E5C2D8382AAFE8AFFAA4F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = KeychainAccess;
+			target = 615C831BCE925ED486B225B87E44926D /* KeychainAccess */;
+			targetProxy = D7FC37BC3633530A4E4701655D61584C /* PBXContainerItemProxy */;
+		};
+		52FC3C9DB61460B0A8CA9A2978AACB84 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-NimbleTechTest";
+			target = A054ACE7FB2626139E0D3ACB131D32D2 /* Pods-NimbleTechTest */;
+			targetProxy = D3CA74D9F918C4906C0C64E83CAE1DEA /* PBXContainerItemProxy */;
+		};
+		A1C43ABA4D5740E4C2CFAC3CB7EC0AEE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = KeychainAccess;
+			target = 615C831BCE925ED486B225B87E44926D /* KeychainAccess */;
+			targetProxy = 863AA4398EFB019912C6ADBDB9E42C2B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		19C07B96F3906E515C5388B566E9C765 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 62B1C710FAB1F9B31FFD9B81C91FA12E /* Pods-NimbleTechTest-NimbleTechTestUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-NimbleTechTest-NimbleTechTestUITests/Pods-NimbleTechTest-NimbleTechTestUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-NimbleTechTest-NimbleTechTestUITests/Pods-NimbleTechTest-NimbleTechTestUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		1ECA0555EE0836E3B5FFB136EEBE1F4E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		3731709DD4A34CB0F8A28A8512EAC658 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24B6054C7C3AC655A00DB0268A2DEA02 /* Pods-NimbleTechTest.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-NimbleTechTest/Pods-NimbleTechTest-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-NimbleTechTest/Pods-NimbleTechTest.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		64B3EB8ECF0E555ED4AF88F5B0513EC3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 65D166DC4A6D9F7BA3E877E59ABB57E1 /* Pods-NimbleTechTest.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-NimbleTechTest/Pods-NimbleTechTest-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-NimbleTechTest/Pods-NimbleTechTest.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7964862E27B769E8285F1CE6E4330DF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 50E0C1D2D943DC0C27E07CD85D66F1F7 /* Pods-NimbleTechTestTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-NimbleTechTestTests/Pods-NimbleTechTestTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-NimbleTechTestTests/Pods-NimbleTechTestTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8921698BC65F095850C61BD01FF575B7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 11279AC991C25847DCF259D5CB18E4AA /* Pods-NimbleTechTest-NimbleTechTestUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-NimbleTechTest-NimbleTechTestUITests/Pods-NimbleTechTest-NimbleTechTestUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-NimbleTechTest-NimbleTechTestUITests/Pods-NimbleTechTest-NimbleTechTestUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		92BFC39BE17544ECF48A5D6B7255E3B4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D749F44C3F5D1046BF42D4E05BF66E72 /* KeychainAccess.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/KeychainAccess/KeychainAccess-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/KeychainAccess/KeychainAccess-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/KeychainAccess/KeychainAccess.modulemap";
+				PRODUCT_MODULE_NAME = KeychainAccess;
+				PRODUCT_NAME = KeychainAccess;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A2C2AE76DFE282972B3FB9155435EE61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D749F44C3F5D1046BF42D4E05BF66E72 /* KeychainAccess.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/KeychainAccess/KeychainAccess-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/KeychainAccess/KeychainAccess-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/KeychainAccess/KeychainAccess.modulemap";
+				PRODUCT_MODULE_NAME = KeychainAccess;
+				PRODUCT_NAME = KeychainAccess;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C3D64790A0FE037697A0C2CDF06EBC03 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		EBFF67B2E7208F456CA4D2170F29961D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F182573B2B1D79BAABD6A1B1A4F110C6 /* Pods-NimbleTechTestTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-NimbleTechTestTests/Pods-NimbleTechTestTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-NimbleTechTestTests/Pods-NimbleTechTestTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		37C98536A556ABFF8F08483F030ADCA9 /* Build configuration list for PBXNativeTarget "Pods-NimbleTechTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				64B3EB8ECF0E555ED4AF88F5B0513EC3 /* Debug */,
+				3731709DD4A34CB0F8A28A8512EAC658 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1ECA0555EE0836E3B5FFB136EEBE1F4E /* Debug */,
+				C3D64790A0FE037697A0C2CDF06EBC03 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4BEE926243448802ACA6F07A75D9C025 /* Build configuration list for PBXNativeTarget "KeychainAccess" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A2C2AE76DFE282972B3FB9155435EE61 /* Debug */,
+				92BFC39BE17544ECF48A5D6B7255E3B4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D12B6E97A9D821DFE5DD24D9A1D0AE33 /* Build configuration list for PBXNativeTarget "Pods-NimbleTechTest-NimbleTechTestUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				19C07B96F3906E515C5388B566E9C765 /* Debug */,
+				8921698BC65F095850C61BD01FF575B7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D4B2E57E30CBC6CCC4A921C3EE2F4AC5 /* Build configuration list for PBXNativeTarget "Pods-NimbleTechTestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EBFF67B2E7208F456CA4D2170F29961D /* Debug */,
+				7964862E27B769E8285F1CE6E4330DF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}
