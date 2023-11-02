@@ -49,11 +49,11 @@ class LoginViewModel {
     func login(_ requestInfo: LoginRequestInfo) {
         let urlString = Constants.baseUrl.rawValue
         
-        let postParameters = ["grant_type": "password",
-                              "email": "your_email@example.com",
-                              "password": "12345678",
-                              "client_id": "ofzl-2h5ympKa0WqqTzqlVJUiRsxmXQmt5tkgrlWnOE",
-                              "client_secret": "lMQb900L-mTeU-FVTCwyhjsfBwRCxwwbCitPob96cuU"]
+        let postParameters = ["grant_type": GrantType.password.rawValue,
+                              "email": requestInfo.email,
+                              "password": requestInfo.password,
+                              "client_id": Constants.clientId.rawValue,
+                              "client_secret": Constants.clientSecret.rawValue]
         
         apiManager.callApi(urlString: urlString, method: "POST", parameters: postParameters) { (result: Result<TokenResponseBase, APIError>) in
             switch result {

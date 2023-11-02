@@ -20,6 +20,10 @@ enum Constants: String {
     case clientSecret = "lMQb900L-mTeU-FVTCwyhjsfBwRCxwwbCitPob96cuU"
 }
 
+enum GrantType: String {
+    case password = "password"
+}
+
 class ApiManager {
     private let keychain = Keychain(service: "com.akazad.app.refreshToken")
     
