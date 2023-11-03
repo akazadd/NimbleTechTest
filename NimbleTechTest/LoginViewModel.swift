@@ -46,7 +46,7 @@ class LoginViewModel {
         completion(true, nil)
     }
     
-    func login(_ requestInfo: LoginRequestInfo, competion: @escaping (Result<Bool, Error>) -> Void) {
+    func login(_ requestInfo: LoginRequestInfo, competion: @escaping (Result<Void, Error>) -> Void) {
         let urlString = Constants.baseUrl.rawValue
         
         let postParameters = ["grant_type": GrantType.password.rawValue,
@@ -59,23 +59,25 @@ class LoginViewModel {
             switch result {
             case .success(let response):
                 print("response: \(response)")
-            case .failure(let failure):
-                if failure == .accessTokenExpired {
-                    self.handleAccessTokenExpired {
-                        
-                        //Call main function here
-                        
-                    }
+                competion(.success(()))
+            case .failure(let error):
+                if error == .accessTokenExpired {
+                    self.handleAccessTokenExpired()
                 }
+                competion(.failure(error))
             }
         }
     }
     
-    func handleAccessTokenExpired(completion: @escaping () -> Void) {
-        //Implement your logic
-        
-        completion()
-        
+    func handleAccessTokenExpired() {
+        apiManager.refreshAccessToken { result in
+            switch result {
+            case .success:
+                print("successfully refreshed access token")
+            case .failure:
+                print("failed to refresh access token")
+            }
+        }
     }
 }
 

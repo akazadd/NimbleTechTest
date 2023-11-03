@@ -34,7 +34,7 @@ class LoginViewController: UIViewController {
             switch valid {
             case true:
                 let loginRequestInfo = LoginRequestInfo(email: self.emailTextField.text!, password: self.passwordTextField.text!)
-                self.viewModel.login(loginRequestInfo) { (result: Result<Bool, Error>) in
+                self.viewModel.login(loginRequestInfo) { result in
                     switch result {
                     case .success:
                         print("Login Successful")
