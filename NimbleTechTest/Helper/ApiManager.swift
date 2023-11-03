@@ -16,6 +16,7 @@ enum APIError: Error {
 
 enum Constants: String {
     case baseUrl = "https://survey-api.nimblehq.co/api/v1/oauth/token"
+    case surveyUrl = "https://survey-api.nimblehq.co/api/v1/surveys"
     case clientId = "ofzl-2h5ympKa0WqqTzqlVJUiRsxmXQmt5tkgrlWnOE"
     case clientSecret = "lMQb900L-mTeU-FVTCwyhjsfBwRCxwwbCitPob96cuU"
 }
@@ -23,6 +24,10 @@ enum Constants: String {
 enum GrantType: String {
     case password = "password"
     case refreshToken = "refresh_token"
+}
+
+struct defaultKeys {
+    static let accessToken = "accessToken"
 }
 
 class ApiManager {
@@ -51,6 +56,11 @@ class ApiManager {
             request.httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
         }
         
+        if method == "GET" {
+            let accessToken = UserDefaults.standard.string(forKey: defaultKeys.accessToken)
+            request.addValue("Bearer \(accessToken!)", forHTTPHeaderField: "Authorization")
+        }
+        
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let _ = error {
                 completion(.failure(.networkError))
@@ -65,8 +75,23 @@ class ApiManager {
             }
             
             do {
+                // create json object from data or use JSONDecoder to convert to Model stuct
+                if let jsonResponse = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
+                    print(jsonResponse)
+                    
+                    // handle json response
+                } else {
+                    print("data maybe corrupted or in wrong format")
+                    throw URLError(.badServerResponse)
+                }
+            } catch let error {
+                print(error.localizedDescription)
+            }
+            
+            do {
                 let decoder = JSONDecoder()
                 let decodedData = try decoder.decode(T.self, from: data)
+//                let _dData = try! decoder.decode(TokenResponseBase.self, from: data)
                 completion(.success(decodedData))
             } catch {
                 if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 401 {

@@ -21,6 +21,11 @@
 		CB15306D2AF42ABE0051FCA5 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB15306C2AF42ABE0051FCA5 /* LoginViewModel.swift */; };
 		CBAE47CF2AF537E800AC4665 /* NeuzeitSLTStd-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = CBAE47CE2AF537E800AC4665 /* NeuzeitSLTStd-Book.otf */; };
 		CBAE47D12AF541B000AC4665 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE47D02AF541B000AC4665 /* HomeViewController.swift */; };
+		CBAE47D32AF5500200AC4665 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE47D22AF5500200AC4665 /* HomeViewModel.swift */; };
+		CBAE47D52AF5521400AC4665 /* SurveyListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE47D42AF5521400AC4665 /* SurveyListModel.swift */; };
+		CBAE47D92AF556AA00AC4665 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE47D82AF556AA00AC4665 /* Extensions.swift */; };
+		CBAE47DB2AF57FEE00AC4665 /* Launcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE47DA2AF57FEE00AC4665 /* Launcher.swift */; };
+		CBAE47DD2AF5804300AC4665 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE47DC2AF5804300AC4665 /* LoginRouter.swift */; };
 		CD9248D2F0100DED4156AB0E /* Pods_NimbleTechTest_NimbleTechTestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D5EBED9F7DED56166B40BB /* Pods_NimbleTechTest_NimbleTechTestUITests.framework */; };
 		D31E3423E6A96EC072BC4052 /* Pods_NimbleTechTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB940321C39728274FEBC08 /* Pods_NimbleTechTest.framework */; };
 		F8885B3C651F8B771071BCDC /* Pods_NimbleTechTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A72BF6720DA1F4583BD955D /* Pods_NimbleTechTestTests.framework */; };
@@ -67,6 +72,11 @@
 		CB15306C2AF42ABE0051FCA5 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		CBAE47CE2AF537E800AC4665 /* NeuzeitSLTStd-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NeuzeitSLTStd-Book.otf"; sourceTree = "<group>"; };
 		CBAE47D02AF541B000AC4665 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		CBAE47D22AF5500200AC4665 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		CBAE47D42AF5521400AC4665 /* SurveyListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyListModel.swift; sourceTree = "<group>"; };
+		CBAE47D82AF556AA00AC4665 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		CBAE47DA2AF57FEE00AC4665 /* Launcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Launcher.swift; sourceTree = "<group>"; };
+		CBAE47DC2AF5804300AC4665 /* LoginRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
 		D9B60A728B0DCDD954407A92 /* Pods-NimbleTechTest-NimbleTechTestUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NimbleTechTest-NimbleTechTestUITests.debug.xcconfig"; path = "Target Support Files/Pods-NimbleTechTest-NimbleTechTestUITests/Pods-NimbleTechTest-NimbleTechTestUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DCB940321C39728274FEBC08 /* Pods_NimbleTechTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NimbleTechTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF9EE9112A22BB5E74738693 /* Pods-NimbleTechTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NimbleTechTest.debug.xcconfig"; path = "Target Support Files/Pods-NimbleTechTest/Pods-NimbleTechTest.debug.xcconfig"; sourceTree = "<group>"; };
@@ -139,18 +149,11 @@
 		CB1530352AF2D92C0051FCA5 /* NimbleTechTest */ = {
 			isa = PBXGroup;
 			children = (
-				CB1530362AF2D92C0051FCA5 /* AppDelegate.swift */,
-				CB1530382AF2D92C0051FCA5 /* SceneDelegate.swift */,
-				CB15303A2AF2D92C0051FCA5 /* LoginViewController.swift */,
-				CB15306C2AF42ABE0051FCA5 /* LoginViewModel.swift */,
-				CBAE47D02AF541B000AC4665 /* HomeViewController.swift */,
-				CB15303C2AF2D92C0051FCA5 /* Main.storyboard */,
-				CB15303F2AF2D92E0051FCA5 /* Assets.xcassets */,
-				CB1530412AF2D92E0051FCA5 /* LaunchScreen.storyboard */,
-				CB1530442AF2D92E0051FCA5 /* Info.plist */,
-				CB1530682AF3E1EB0051FCA5 /* ApiManager.swift */,
-				CB15306A2AF428440051FCA5 /* TokenResponseModel.swift */,
+				CBAE47DE2AF5898C00AC4665 /* Application */,
+				CBAE47DF2AF5899B00AC4665 /* Login */,
+				CBAE47E02AF589AF00AC4665 /* Home */,
 				CBAE47CD2AF537BC00AC4665 /* Fonts */,
+				CBAE47E12AF589C400AC4665 /* Helper */,
 			);
 			path = NimbleTechTest;
 			sourceTree = "<group>";
@@ -178,6 +181,50 @@
 				CBAE47CE2AF537E800AC4665 /* NeuzeitSLTStd-Book.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		CBAE47DE2AF5898C00AC4665 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				CB1530362AF2D92C0051FCA5 /* AppDelegate.swift */,
+				CB1530382AF2D92C0051FCA5 /* SceneDelegate.swift */,
+				CB15303C2AF2D92C0051FCA5 /* Main.storyboard */,
+				CB15303F2AF2D92E0051FCA5 /* Assets.xcassets */,
+				CB1530412AF2D92E0051FCA5 /* LaunchScreen.storyboard */,
+				CB1530442AF2D92E0051FCA5 /* Info.plist */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		CBAE47DF2AF5899B00AC4665 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				CB15303A2AF2D92C0051FCA5 /* LoginViewController.swift */,
+				CB15306C2AF42ABE0051FCA5 /* LoginViewModel.swift */,
+				CBAE47DC2AF5804300AC4665 /* LoginRouter.swift */,
+				CB15306A2AF428440051FCA5 /* TokenResponseModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		CBAE47E02AF589AF00AC4665 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				CBAE47D02AF541B000AC4665 /* HomeViewController.swift */,
+				CBAE47D22AF5500200AC4665 /* HomeViewModel.swift */,
+				CBAE47D42AF5521400AC4665 /* SurveyListModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		CBAE47E12AF589C400AC4665 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				CBAE47D82AF556AA00AC4665 /* Extensions.swift */,
+				CBAE47DA2AF57FEE00AC4665 /* Launcher.swift */,
+				CB1530682AF3E1EB0051FCA5 /* ApiManager.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		D02FAFB503AC53F3D5299140 /* Frameworks */ = {
@@ -433,9 +480,14 @@
 				CB1530692AF3E1EB0051FCA5 /* ApiManager.swift in Sources */,
 				CB15306D2AF42ABE0051FCA5 /* LoginViewModel.swift in Sources */,
 				CB15303B2AF2D92C0051FCA5 /* LoginViewController.swift in Sources */,
+				CBAE47D32AF5500200AC4665 /* HomeViewModel.swift in Sources */,
 				CB15306B2AF428440051FCA5 /* TokenResponseModel.swift in Sources */,
 				CB1530372AF2D92C0051FCA5 /* AppDelegate.swift in Sources */,
+				CBAE47DB2AF57FEE00AC4665 /* Launcher.swift in Sources */,
 				CBAE47D12AF541B000AC4665 /* HomeViewController.swift in Sources */,
+				CBAE47D52AF5521400AC4665 /* SurveyListModel.swift in Sources */,
+				CBAE47D92AF556AA00AC4665 /* Extensions.swift in Sources */,
+				CBAE47DD2AF5804300AC4665 /* LoginRouter.swift in Sources */,
 				CB1530392AF2D92C0051FCA5 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -618,7 +670,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RAMQZHHZ8K;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NimbleTechTest/Info.plist;
+				INFOPLIST_FILE = NimbleTechTest/Application/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -647,7 +699,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RAMQZHHZ8K;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NimbleTechTest/Info.plist;
+				INFOPLIST_FILE = NimbleTechTest/Application/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
