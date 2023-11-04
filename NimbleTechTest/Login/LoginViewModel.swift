@@ -55,10 +55,14 @@ class LoginViewModel {
                               "client_id": Constants.clientId.rawValue,
                               "client_secret": Constants.clientSecret.rawValue]
         
-        apiManager.callApi(urlString: urlString, method: "POST", parameters: postParameters) { (result: Result<TokenResponseBase, APIError>) in
+        apiManager.callApi(urlString: urlString, method: "POST", parameters: postParameters) { [weak self] (result: Result<TokenResponseBase, APIError>) in
+            
+            guard let self = self else { return }
+            
             switch result {
             case .success(let response):
                 print("response: \(response)")
+                self.apiManager.saveAccessToken(response.data?.attributes?.accessToken ?? "")
                 competion(.success(()))
             case .failure(let error):
                 if error == .accessTokenExpired {
@@ -81,10 +85,3 @@ class LoginViewModel {
     }
 }
 
-extension String {
-    func isValidEmail() -> Bool {
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        let emailPred = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
-        return emailPred.evaluate(with: self)
-    }
-}

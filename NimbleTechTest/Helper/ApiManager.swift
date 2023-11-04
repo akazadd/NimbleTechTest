@@ -16,6 +16,7 @@ enum APIError: Error {
 
 enum Constants: String {
     case baseUrl = "https://survey-api.nimblehq.co/api/v1/oauth/token"
+    case surveyUrl = "https://survey-api.nimblehq.co/api/v1/surveys"
     case clientId = "ofzl-2h5ympKa0WqqTzqlVJUiRsxmXQmt5tkgrlWnOE"
     case clientSecret = "lMQb900L-mTeU-FVTCwyhjsfBwRCxwwbCitPob96cuU"
 }
@@ -25,11 +26,13 @@ enum GrantType: String {
     case refreshToken = "refresh_token"
 }
 
+struct defaultKeys {
+    static let refreshTokenKey = "refreshToken"
+    static let accessTokenKey = "accessToken"
+}
+
 class ApiManager {
     private let keychain = Keychain(service: "com.akazad.app.refreshToken")
-    
-    private let refreshTokenKey = "refreshToken"
-    private var accessToken: String?
     
     func callApi<T: Codable>(urlString: String,
                              method: String,
@@ -51,6 +54,10 @@ class ApiManager {
             request.httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
         }
         
+        if method == "GET" {
+            request.addValue("Bearer \(getAccessToken())", forHTTPHeaderField: "Authorization")
+        }
+        
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let _ = error {
                 completion(.failure(.networkError))
@@ -62,6 +69,20 @@ class ApiManager {
                 completion(.failure(.networkError))
                 
                 return
+            }
+            
+            do {
+                // create json object from data or use JSONDecoder to convert to Model stuct
+                if let jsonResponse = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
+                    print(jsonResponse)
+                    
+                    // handle json response
+                } else {
+                    print("data maybe corrupted or in wrong format")
+                    throw URLError(.badServerResponse)
+                }
+            } catch let error {
+                print(error.localizedDescription)
             }
             
             do {
@@ -89,7 +110,7 @@ class ApiManager {
     }
     
     func refreshAccessToken(completion: @escaping (Result<Void, APIError>) -> Void) {
-        guard let refreshToken = try? keychain.get(refreshTokenKey) else {
+        guard let refreshToken = try? keychain.get(defaultKeys.refreshTokenKey) else {
             completion(.failure(.accessTokenExpired))
             
             return
@@ -132,7 +153,7 @@ class ApiManager {
             do {
                 let decoder = JSONDecoder()
                 let decodedData = try decoder.decode(TokenResponse.self, from: data)
-                self.accessToken = decodedData.attributes?.accessToken
+                self.saveAccessToken(decodedData.attributes?.accessToken ?? "")
                 self.saveRefreshToken(decodedData.attributes?.refreshToken ?? "")
                 completion(.success(()))
             } catch {
@@ -145,10 +166,29 @@ class ApiManager {
     
     func saveRefreshToken(_ token: String) {
         do {
-            try keychain.set(token, key: refreshTokenKey)
+            try keychain.set(token, key: defaultKeys.refreshTokenKey)
         } catch {
             print("Error saving refresh token to keychain: \(error)")
         }
+    }
+    
+    func saveAccessToken(_ token: String) {
+        do {
+            try keychain.set(token, key: defaultKeys.accessTokenKey)
+        } catch {
+            print("Error saving access token to keychain: \(error)")
+        }
+    }
+    
+    func getAccessToken() -> String {
+        var accessToken = ""
+        do {
+            accessToken = try keychain.getString(defaultKeys.accessTokenKey) ?? ""
+        } catch {
+            print("Error getting access token")
+        }
+        
+        return accessToken
     }
 }
 

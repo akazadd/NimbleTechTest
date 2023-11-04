@@ -9,7 +9,8 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    private var viewModel = LoginViewModel()
+    var router: LoginRouter!
+    var viewModel: LoginViewModel!
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -38,6 +39,9 @@ class LoginViewController: UIViewController {
                     switch result {
                     case .success:
                         print("Login Successful")
+                        DispatchQueue.main.async {
+                            self.router.perform(.login, from: self)
+                        }
                     case .failure:
                         print("Login failed")
                     }
