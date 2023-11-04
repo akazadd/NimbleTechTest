@@ -19,7 +19,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var queryLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     
-    var viewModel: HomeViewModel!
+    var viewModel: HomeViewModelProtocol!
     
     static func instantiate() -> HomeViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -31,8 +31,21 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        AMShimmer.start(for: backgroundImgView)
-        viewModel.serveyList(pageNumber: 1, pageSize: 5)
-        AMShimmer.stop(for: backgroundImgView)
+        fetchData(page: 1, size: 5)
+    }
+    
+    func fetchData(page: Int, size: Int) {
+        viewModel.fetchServeyListFromAPI(pageNumber: page, pageSize: size) { [weak self] in
+            DispatchQueue.main.async {
+                self?.updateUI()
+            }
+        }
+    }
+    
+    private func updateUI() {
+        dateLabel.text = viewModel.responseData?[0].attributes?.created_at?.formattedDateString()
+        dayLabel.text = viewModel.responseData?[0].attributes?.active_at?.formattedDayString()
+        titleLabel.text = viewModel.responseData?[0].attributes?.title ?? ""
+        queryLabel.text = viewModel.responseData?[0].attributes?.description ?? ""
     }
 }

@@ -7,26 +7,34 @@
 
 import Foundation
 
-class HomeViewModel {
-    
-    private let apiManager = ApiManager()
-    
-    func serveyList(pageNumber: Int, pageSize: Int) {
+protocol HomeViewModelProtocol {
+    var responseData: [SurveyList]? { get }
+    func fetchServeyListFromAPI(pageNumber: Int, pageSize: Int, completion: @escaping () -> Void)
+}
+
+class HomeViewModel: HomeViewModelProtocol {
+    var responseData: [SurveyList]?
+    private var apiManager = ApiManager()
+
+    func fetchServeyListFromAPI(pageNumber: Int, pageSize: Int, completion: @escaping () -> Void) {
         let urlString = Constants.surveyUrl.rawValue + "?page[number]=\(pageNumber)&page[size]=\(pageSize)"
-        print("urlString: \(urlString)")
         
-        apiManager.callApi(urlString: urlString, method: "GET", parameters: nil) { (result: Result<SurveyListModel, APIError>) in
+        apiManager.callApi(urlString: urlString, method: "GET", parameters: nil) { [unowned self] (result: Result<SurveyListModel, APIError>) in
             switch result {
             case .success(let response):
-                print("response: \(response)")
-//                competion(.success(()))
+                self.responseData = response.surveyList
+                completion()
             case .failure(let error):
-//                if error == .accessTokenExpired {
-//                    self.handleAccessTokenExpired()
-//                }
-//                competion(.failure(error))
-                print(error)
+                print("API Error: \(error)")
             }
         }
+    }
+    
+    func surveyTitle(index: Int) -> String {
+        guard let responseData = responseData, let title = responseData[index].attributes?.title else {
+            return ""
+        }
+        
+        return title
     }
 }
