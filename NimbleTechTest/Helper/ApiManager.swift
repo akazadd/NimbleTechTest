@@ -27,14 +27,12 @@ enum GrantType: String {
 }
 
 struct defaultKeys {
-    static let accessToken = "accessToken"
+    static let refreshTokenKey = "refreshToken"
+    static let accessTokenKey = "accessToken"
 }
 
 class ApiManager {
     private let keychain = Keychain(service: "com.akazad.app.refreshToken")
-    
-    private let refreshTokenKey = "refreshToken"
-    private var accessToken: String?
     
     func callApi<T: Codable>(urlString: String,
                              method: String,
@@ -57,8 +55,7 @@ class ApiManager {
         }
         
         if method == "GET" {
-            let accessToken = UserDefaults.standard.string(forKey: defaultKeys.accessToken)
-            request.addValue("Bearer \(accessToken!)", forHTTPHeaderField: "Authorization")
+            request.addValue("Bearer \(getAccessToken())", forHTTPHeaderField: "Authorization")
         }
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
@@ -91,7 +88,6 @@ class ApiManager {
             do {
                 let decoder = JSONDecoder()
                 let decodedData = try decoder.decode(T.self, from: data)
-//                let _dData = try! decoder.decode(TokenResponseBase.self, from: data)
                 completion(.success(decodedData))
             } catch {
                 if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 401 {
@@ -114,7 +110,7 @@ class ApiManager {
     }
     
     func refreshAccessToken(completion: @escaping (Result<Void, APIError>) -> Void) {
-        guard let refreshToken = try? keychain.get(refreshTokenKey) else {
+        guard let refreshToken = try? keychain.get(defaultKeys.refreshTokenKey) else {
             completion(.failure(.accessTokenExpired))
             
             return
@@ -157,7 +153,7 @@ class ApiManager {
             do {
                 let decoder = JSONDecoder()
                 let decodedData = try decoder.decode(TokenResponse.self, from: data)
-                self.accessToken = decodedData.attributes?.accessToken
+                self.saveAccessToken(decodedData.attributes?.accessToken ?? "")
                 self.saveRefreshToken(decodedData.attributes?.refreshToken ?? "")
                 completion(.success(()))
             } catch {
@@ -170,10 +166,29 @@ class ApiManager {
     
     func saveRefreshToken(_ token: String) {
         do {
-            try keychain.set(token, key: refreshTokenKey)
+            try keychain.set(token, key: defaultKeys.refreshTokenKey)
         } catch {
             print("Error saving refresh token to keychain: \(error)")
         }
+    }
+    
+    func saveAccessToken(_ token: String) {
+        do {
+            try keychain.set(token, key: defaultKeys.accessTokenKey)
+        } catch {
+            print("Error saving access token to keychain: \(error)")
+        }
+    }
+    
+    func getAccessToken() -> String {
+        var accessToken = ""
+        do {
+            accessToken = try keychain.getString(defaultKeys.accessTokenKey) ?? ""
+        } catch {
+            print("Error getting access token")
+        }
+        
+        return accessToken
     }
 }
 

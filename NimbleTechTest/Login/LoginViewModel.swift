@@ -55,11 +55,14 @@ class LoginViewModel {
                               "client_id": Constants.clientId.rawValue,
                               "client_secret": Constants.clientSecret.rawValue]
         
-        apiManager.callApi(urlString: urlString, method: "POST", parameters: postParameters) { (result: Result<TokenResponseBase, APIError>) in
+        apiManager.callApi(urlString: urlString, method: "POST", parameters: postParameters) { [weak self] (result: Result<TokenResponseBase, APIError>) in
+            
+            guard let self = self else { return }
+            
             switch result {
             case .success(let response):
                 print("response: \(response)")
-                UserDefaults.standard.set(response.data?.attributes?.accessToken, forKey: defaultKeys.accessToken)
+                self.apiManager.saveAccessToken(response.data?.attributes?.accessToken ?? "")
                 competion(.success(()))
             case .failure(let error):
                 if error == .accessTokenExpired {
