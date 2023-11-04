@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AMShimmer
 
 class HomeViewController: UIViewController {
 
@@ -30,8 +31,8 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        AMShimmer.start(for: backgroundImgView)
         viewModel.serveyList(pageNumber: 1, pageSize: 5)
+        AMShimmer.stop(for: backgroundImgView)
     }
-    
-
 }

@@ -1,16 +1,20 @@
 PODS:
+  - AMShimmer (1.0.6)
   - KeychainAccess (4.2.2)
 
 DEPENDENCIES:
+  - AMShimmer
   - KeychainAccess
 
 SPEC REPOS:
   trunk:
+    - AMShimmer
     - KeychainAccess
 
 SPEC CHECKSUMS:
+  AMShimmer: 681eeaaedf9fc4e390e95e9dd6fe59df947cfee0
   KeychainAccess: c0c4f7f38f6fc7bbe58f5702e25f7bd2f65abf51
 
-PODFILE CHECKSUM: c11672a8cc92658672ff2cd53216c83831d3a770
+PODFILE CHECKSUM: 75ce21619e0aaa9932f990ce901bd3dffd44f970
 
 COCOAPODS: 1.8.3

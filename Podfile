@@ -6,6 +6,7 @@ target 'NimbleTechTest' do
   use_frameworks!
 
   pod 'KeychainAccess'
+  pod 'AMShimmer'
 
   # Pods for NimbleTechTest
 
