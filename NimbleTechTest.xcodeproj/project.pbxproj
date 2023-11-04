@@ -19,6 +19,7 @@
 		CB1530692AF3E1EB0051FCA5 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1530682AF3E1EB0051FCA5 /* ApiManager.swift */; };
 		CB15306B2AF428440051FCA5 /* TokenResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB15306A2AF428440051FCA5 /* TokenResponseModel.swift */; };
 		CB15306D2AF42ABE0051FCA5 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB15306C2AF42ABE0051FCA5 /* LoginViewModel.swift */; };
+		CB8751012AF6285100569A75 /* APIManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8751002AF6285100569A75 /* APIManagerTests.swift */; };
 		CBAE47CF2AF537E800AC4665 /* NeuzeitSLTStd-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = CBAE47CE2AF537E800AC4665 /* NeuzeitSLTStd-Book.otf */; };
 		CBAE47D12AF541B000AC4665 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE47D02AF541B000AC4665 /* HomeViewController.swift */; };
 		CBAE47D32AF5500200AC4665 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE47D22AF5500200AC4665 /* HomeViewModel.swift */; };
@@ -70,6 +71,7 @@
 		CB1530682AF3E1EB0051FCA5 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		CB15306A2AF428440051FCA5 /* TokenResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResponseModel.swift; sourceTree = "<group>"; };
 		CB15306C2AF42ABE0051FCA5 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		CB8751002AF6285100569A75 /* APIManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManagerTests.swift; sourceTree = "<group>"; };
 		CBAE47CE2AF537E800AC4665 /* NeuzeitSLTStd-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NeuzeitSLTStd-Book.otf"; sourceTree = "<group>"; };
 		CBAE47D02AF541B000AC4665 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CBAE47D22AF5500200AC4665 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				CB15304D2AF2D92E0051FCA5 /* NimbleTechTestTests.swift */,
+				CB8751002AF6285100569A75 /* APIManagerTests.swift */,
 			);
 			path = NimbleTechTestTests;
 			sourceTree = "<group>";
@@ -496,6 +499,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB8751012AF6285100569A75 /* APIManagerTests.swift in Sources */,
 				CB15304E2AF2D92E0051FCA5 /* NimbleTechTestTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -172,6 +172,17 @@ class ApiManager {
         }
     }
     
+    func getRefreshToken() -> String {
+        var refreshToken = ""
+        do {
+            refreshToken = try keychain.getString(defaultKeys.refreshTokenKey) ?? ""
+        } catch {
+            print("Error saving refresh token to keychain: \(error)")
+        }
+        
+        return refreshToken
+    }
+    
     func saveAccessToken(_ token: String) {
         do {
             try keychain.set(token, key: defaultKeys.accessTokenKey)
