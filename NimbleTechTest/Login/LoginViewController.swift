@@ -14,7 +14,7 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var loginButton: LoadingButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +29,7 @@ class LoginViewController: UIViewController {
     
     @objc func onLoginButtonTap() {
         self.view.endEditing(true)
+        loginButton.showLoading()
         viewModel.validateInput(emailTextField.text, password: passwordTextField.text) { [weak self] (valid, message) in
             guard let self = self else { return }
             
@@ -39,15 +40,18 @@ class LoginViewController: UIViewController {
                     switch result {
                     case .success:
                         print("Login Successful")
+                        self.loginButton.hideLoading()
                         DispatchQueue.main.async {
                             self.router.perform(.login, from: self)
                         }
                     case .failure:
+                        self.loginButton.hideLoading()
                         print("Login failed")
                     }
                 }
             case false:
                 //Show Error
+                self.loginButton.hideLoading()
                 print(message!)
             }
         }

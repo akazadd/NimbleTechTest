@@ -43,7 +43,6 @@ struct SurveyList : Codable {
         attributes = try values.decodeIfPresent(SurveyListAttributes.self, forKey: .attributes)
         relationships = try values.decodeIfPresent(Relationships.self, forKey: .relationships)
     }
-
 }
 
 struct SurveyListAttributes : Codable {

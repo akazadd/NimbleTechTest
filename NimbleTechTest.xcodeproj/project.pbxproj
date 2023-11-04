@@ -21,6 +21,7 @@
 		CB15306D2AF42ABE0051FCA5 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB15306C2AF42ABE0051FCA5 /* LoginViewModel.swift */; };
 		CB8751012AF6285100569A75 /* APIManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8751002AF6285100569A75 /* APIManagerTests.swift */; };
 		CB8751032AF63D3A00569A75 /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8751022AF63D3A00569A75 /* LoginViewModelTests.swift */; };
+		CB87D9322AF66126001CA7F7 /* LoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB87D9312AF66126001CA7F7 /* LoadingButton.swift */; };
 		CBAE47CF2AF537E800AC4665 /* NeuzeitSLTStd-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = CBAE47CE2AF537E800AC4665 /* NeuzeitSLTStd-Book.otf */; };
 		CBAE47D12AF541B000AC4665 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE47D02AF541B000AC4665 /* HomeViewController.swift */; };
 		CBAE47D32AF5500200AC4665 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE47D22AF5500200AC4665 /* HomeViewModel.swift */; };
@@ -28,6 +29,8 @@
 		CBAE47D92AF556AA00AC4665 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE47D82AF556AA00AC4665 /* Extensions.swift */; };
 		CBAE47DB2AF57FEE00AC4665 /* Launcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE47DA2AF57FEE00AC4665 /* Launcher.swift */; };
 		CBAE47DD2AF5804300AC4665 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE47DC2AF5804300AC4665 /* LoginRouter.swift */; };
+		CBC72AC32AF6D664002EDF43 /* SurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC72AC22AF6D664002EDF43 /* SurveyView.swift */; };
+		CBC72AC52AF6D73E002EDF43 /* SurveyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBC72AC42AF6D73E002EDF43 /* SurveyView.xib */; };
 		CD9248D2F0100DED4156AB0E /* Pods_NimbleTechTest_NimbleTechTestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08D5EBED9F7DED56166B40BB /* Pods_NimbleTechTest_NimbleTechTestUITests.framework */; };
 		D31E3423E6A96EC072BC4052 /* Pods_NimbleTechTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB940321C39728274FEBC08 /* Pods_NimbleTechTest.framework */; };
 		F8885B3C651F8B771071BCDC /* Pods_NimbleTechTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A72BF6720DA1F4583BD955D /* Pods_NimbleTechTestTests.framework */; };
@@ -74,6 +77,7 @@
 		CB15306C2AF42ABE0051FCA5 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		CB8751002AF6285100569A75 /* APIManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManagerTests.swift; sourceTree = "<group>"; };
 		CB8751022AF63D3A00569A75 /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
+		CB87D9312AF66126001CA7F7 /* LoadingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingButton.swift; sourceTree = "<group>"; };
 		CBAE47CE2AF537E800AC4665 /* NeuzeitSLTStd-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NeuzeitSLTStd-Book.otf"; sourceTree = "<group>"; };
 		CBAE47D02AF541B000AC4665 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CBAE47D22AF5500200AC4665 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -81,6 +85,8 @@
 		CBAE47D82AF556AA00AC4665 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		CBAE47DA2AF57FEE00AC4665 /* Launcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Launcher.swift; sourceTree = "<group>"; };
 		CBAE47DC2AF5804300AC4665 /* LoginRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
+		CBC72AC22AF6D664002EDF43 /* SurveyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyView.swift; sourceTree = "<group>"; };
+		CBC72AC42AF6D73E002EDF43 /* SurveyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SurveyView.xib; sourceTree = "<group>"; };
 		D9B60A728B0DCDD954407A92 /* Pods-NimbleTechTest-NimbleTechTestUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NimbleTechTest-NimbleTechTestUITests.debug.xcconfig"; path = "Target Support Files/Pods-NimbleTechTest-NimbleTechTestUITests/Pods-NimbleTechTest-NimbleTechTestUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DCB940321C39728274FEBC08 /* Pods_NimbleTechTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NimbleTechTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF9EE9112A22BB5E74738693 /* Pods-NimbleTechTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NimbleTechTest.debug.xcconfig"; path = "Target Support Files/Pods-NimbleTechTest/Pods-NimbleTechTest.debug.xcconfig"; sourceTree = "<group>"; };
@@ -219,6 +225,8 @@
 				CBAE47D02AF541B000AC4665 /* HomeViewController.swift */,
 				CBAE47D22AF5500200AC4665 /* HomeViewModel.swift */,
 				CBAE47D42AF5521400AC4665 /* SurveyListModel.swift */,
+				CBC72AC22AF6D664002EDF43 /* SurveyView.swift */,
+				CBC72AC42AF6D73E002EDF43 /* SurveyView.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -229,6 +237,7 @@
 				CBAE47D82AF556AA00AC4665 /* Extensions.swift */,
 				CBAE47DA2AF57FEE00AC4665 /* Launcher.swift */,
 				CB1530682AF3E1EB0051FCA5 /* ApiManager.swift */,
+				CB87D9312AF66126001CA7F7 /* LoadingButton.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -352,6 +361,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBC72AC52AF6D73E002EDF43 /* SurveyView.xib in Resources */,
 				CB1530432AF2D92E0051FCA5 /* LaunchScreen.storyboard in Resources */,
 				CB1530402AF2D92E0051FCA5 /* Assets.xcassets in Resources */,
 				CB15303E2AF2D92C0051FCA5 /* Main.storyboard in Resources */,
@@ -483,6 +493,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBC72AC32AF6D664002EDF43 /* SurveyView.swift in Sources */,
+				CB87D9322AF66126001CA7F7 /* LoadingButton.swift in Sources */,
 				CB1530692AF3E1EB0051FCA5 /* ApiManager.swift in Sources */,
 				CB15306D2AF42ABE0051FCA5 /* LoginViewModel.swift in Sources */,
 				CB15303B2AF2D92C0051FCA5 /* LoginViewController.swift in Sources */,
