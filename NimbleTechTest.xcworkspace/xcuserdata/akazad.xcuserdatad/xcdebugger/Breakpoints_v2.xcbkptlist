@@ -63,9 +63,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "160"
-            endingLineNumber = "160"
-            landmarkName = "refreshAccessToken(completion:)"
-            landmarkType = "7">
+            endingLineNumber = "160">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -80,7 +78,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "98"
             endingLineNumber = "98"
-            landmarkName = "callApi(urlString:method:parameters:completion:)"
+            landmarkName = "refreshAccessToken(completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -144,7 +142,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "108"
             endingLineNumber = "108"
-            landmarkName = "callApi(urlString:method:parameters:completion:)"
+            landmarkName = "refreshAccessToken(completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
