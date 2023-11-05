@@ -31,8 +31,21 @@ class SurveyView: UIView {
     private func commonInit() {
         Bundle.main.loadNibNamed("SurveyView", owner: self, options: nil)
         addSubview(contentView)
-        contentView.frame = self.bounds
+        contentView.frame = bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        applyGradient()
+    }
+    
+    private func applyGradient() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = contentView.bounds
+        gradientLayer.colors = [
+            UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.4).cgColor,
+            UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.8).cgColor
+        ]
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 1)
         
+        contentView.layer.insertSublayer(gradientLayer, at: 0)
     }
 }
