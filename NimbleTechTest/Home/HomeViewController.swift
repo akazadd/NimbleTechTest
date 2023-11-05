@@ -22,11 +22,24 @@ class HomeViewController: UIViewController {
         return vc
     }
     
+    private lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(handleRefresh(_:)), for: .valueChanged)
+        return refreshControl
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        // Add scrollview as a subview to view
         view.addSubview(scrollview)
+        
+        // Add refresh control to the view
+        scrollview.refreshControl = refreshControl
+        
+        // Fetch data when the view loads
         fetchData(page: 1, size: 5)
     }
     
@@ -34,6 +47,12 @@ class HomeViewController: UIViewController {
         super.viewDidLayoutSubviews()
         
         scrollview.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height)
+        scrollview.showsHorizontalScrollIndicator = false
+        scrollview.automaticallyAdjustsScrollIndicatorInsets = false
+        scrollview.contentInset = .zero
+        scrollview.scrollIndicatorInsets = .zero
+        scrollview.contentOffset = CGPoint(x: 0.0, y: 0.0)
+        scrollview.contentInsetAdjustmentBehavior = .never
     }
     
     func configureScrollView(pages: Int) {
@@ -81,19 +100,25 @@ class HomeViewController: UIViewController {
                 if let surveysData = try? JSONEncoder().encode(self?.viewModel.responseData) {
                     UserDefaults.standard.set(surveysData, forKey: defaultKeys.cachedSurveyData)
                 }
+                
+                // End the refresh control
+                self?.refreshControl.endRefreshing()
             }
         }
     }
     
     private func updateUI() {
-        if scrollview.subviews.count == 2 {
-            configureScrollView(pages: viewModel.responseData?.count ?? 0)
-        }
+        configureScrollView(pages: viewModel.responseData?.count ?? 0)
     }
     
     @objc func actionButtonTapped(_ sender: UIButton) {
         // Retrieve the index of the tapped survey view from the button's tag
         self.router.perform(.surveyDetails, from: self, attributes: viewModel.responseData?[sender.tag].attributes)
+    }
+    
+    @objc private func handleRefresh(_ sender: Any) {
+        // Fetch new data from the API
+        fetchData(page: 1, size: 5)
     }
 
 }
