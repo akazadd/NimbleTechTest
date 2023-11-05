@@ -59,3 +59,18 @@ extension String {
         return nil
     }
 }
+
+//extension UIView {
+//    func layerGradient() {
+//        let layer : CAGradientLayer = CAGradientLayer()
+//        layer.frame.size = self.frame.size
+//        layer.frame.origin = CGPoint(x: 0.0,y: 0.0)
+//        layer.cornerRadius = CGFloat(frame.width / 20)
+//
+//        let color0 = UIColor(red:255.0/255, green:255.0/255, blue:255.0/255, alpha:0.8).cgColor
+//        let color1 = UIColor(red:255.0/255, green:255.0/255, blue: 255.0/255, alpha:0.5).cgColor
+//        
+//        layer.colors = [color0,color1]
+//        self.layer.insertSublayer(layer, at: 0)
+//    }
+//}
