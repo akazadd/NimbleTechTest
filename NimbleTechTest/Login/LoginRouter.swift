@@ -25,7 +25,8 @@ class DefaultLoginRouter: LoginRouter {
             UIApplication.shared.keyWindow?.rootViewController = DefaultLoginRouter.makeHomeViewController()
             UIApplication.shared.keyWindow?.makeKeyAndVisible()
         case .forgotPassword:
-            print("forgotPassword")
+            let vc = DefaultLoginRouter.makeForgotPasswordViewController()
+            source.navigationController?.pushViewController(vc, animated: true)
         case .signUp:
             print("signup")
         }
@@ -40,6 +41,13 @@ private extension DefaultLoginRouter {
         let vc = HomeViewController.instantiate()
         vc.viewModel = HomeViewModel()
         vc.router = DefaultHomeRouter()
+        return vc
+    }
+    
+    static func makeForgotPasswordViewController() -> UIViewController {
+        let vc = ForgotPasswordViewController.instantiate()
+        vc.viewModel = ForgotPasswordViewModel()
+        vc.router = DefaultForgotPasswordRouter() 
         return vc
     }
 }

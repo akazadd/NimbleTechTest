@@ -13,7 +13,7 @@ class LoginViewController: UIViewController {
     var viewModel: LoginViewModel!
     
     @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var passwordTextField: PasswordTextField!
     @IBOutlet weak var loginButton: LoadingButton!
     
     override func viewDidLoad() {
@@ -21,9 +21,20 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         configureUIActions()
+        configureUI()
+    }
+    
+    private func configureUI() {
+        [emailTextField,passwordTextField] .forEach { textfield in
+            textfield?.addBorder(withColor: .white, cornerRadius: 12.0, borderWidth: 0.2)
+        }
+        loginButton.layer.cornerRadius = 12.0
+        emailTextField.setPlaceholderColor(.white)
     }
 
     private func configureUIActions() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(forgotPasswordLabelTapped))
+                passwordTextField.forgotPasswordLabel.addGestureRecognizer(tapGesture)
         loginButton.addTarget(self, action: #selector(onLoginButtonTap), for: .touchUpInside)
     }
     
@@ -55,6 +66,17 @@ class LoginViewController: UIViewController {
                 print(message!)
             }
         }
+    }
+}
+
+extension LoginViewController {
+    @objc private func forgotPasswordLabelTapped() {
+        // Handle "Forgot Password" action
+        print("Forgot Password tapped")
+        
+        // Call your forgot password functionality here
+        // Example: viewModel.forgotPassword()
+        self.router.perform(.forgotPassword, from: self)
     }
 }
 
