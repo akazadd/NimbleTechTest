@@ -21,6 +21,11 @@
 		CB15306D2AF42ABE0051FCA5 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB15306C2AF42ABE0051FCA5 /* LoginViewModel.swift */; };
 		CB3941FA2AF7F55C00B9D287 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3941F92AF7F55C00B9D287 /* HomeRouter.swift */; };
 		CB3941FD2AF7F59600B9D287 /* SurveyDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3941FC2AF7F59600B9D287 /* SurveyDetailsViewController.swift */; };
+		CB3942002AF8380100B9D287 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3941FF2AF8380100B9D287 /* ForgotPasswordViewController.swift */; };
+		CB3942022AF838ED00B9D287 /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3942012AF838ED00B9D287 /* ForgotPasswordViewModel.swift */; };
+		CB3942042AF83C0200B9D287 /* ForgotPasswordResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3942032AF83C0200B9D287 /* ForgotPasswordResponseModel.swift */; };
+		CB3942062AF840B800B9D287 /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3942052AF840B800B9D287 /* PasswordTextField.swift */; };
+		CB3942082AF8476F00B9D287 /* ForgotPasswordRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3942072AF8476F00B9D287 /* ForgotPasswordRouter.swift */; };
 		CB8751012AF6285100569A75 /* APIManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8751002AF6285100569A75 /* APIManagerTests.swift */; };
 		CB8751032AF63D3A00569A75 /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8751022AF63D3A00569A75 /* LoginViewModelTests.swift */; };
 		CB87D9322AF66126001CA7F7 /* LoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB87D9312AF66126001CA7F7 /* LoadingButton.swift */; };
@@ -79,6 +84,11 @@
 		CB15306C2AF42ABE0051FCA5 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		CB3941F92AF7F55C00B9D287 /* HomeRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		CB3941FC2AF7F59600B9D287 /* SurveyDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyDetailsViewController.swift; sourceTree = "<group>"; };
+		CB3941FF2AF8380100B9D287 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		CB3942012AF838ED00B9D287 /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
+		CB3942032AF83C0200B9D287 /* ForgotPasswordResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordResponseModel.swift; sourceTree = "<group>"; };
+		CB3942052AF840B800B9D287 /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
+		CB3942072AF8476F00B9D287 /* ForgotPasswordRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordRouter.swift; sourceTree = "<group>"; };
 		CB8751002AF6285100569A75 /* APIManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManagerTests.swift; sourceTree = "<group>"; };
 		CB8751022AF63D3A00569A75 /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
 		CB87D9312AF66126001CA7F7 /* LoadingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingButton.swift; sourceTree = "<group>"; };
@@ -165,6 +175,7 @@
 			children = (
 				CBAE47DE2AF5898C00AC4665 /* Application */,
 				CBAE47DF2AF5899B00AC4665 /* Login */,
+				CB3941FE2AF837E500B9D287 /* Forgot Password */,
 				CBAE47E02AF589AF00AC4665 /* Home */,
 				CB3941FB2AF7F57900B9D287 /* Survey Details */,
 				CBAE47CD2AF537BC00AC4665 /* Fonts */,
@@ -198,6 +209,17 @@
 				CB3941FC2AF7F59600B9D287 /* SurveyDetailsViewController.swift */,
 			);
 			path = "Survey Details";
+			sourceTree = "<group>";
+		};
+		CB3941FE2AF837E500B9D287 /* Forgot Password */ = {
+			isa = PBXGroup;
+			children = (
+				CB3941FF2AF8380100B9D287 /* ForgotPasswordViewController.swift */,
+				CB3942012AF838ED00B9D287 /* ForgotPasswordViewModel.swift */,
+				CB3942032AF83C0200B9D287 /* ForgotPasswordResponseModel.swift */,
+				CB3942072AF8476F00B9D287 /* ForgotPasswordRouter.swift */,
+			);
+			path = "Forgot Password";
 			sourceTree = "<group>";
 		};
 		CBAE47CD2AF537BC00AC4665 /* Fonts */ = {
@@ -252,6 +274,7 @@
 				CBAE47DA2AF57FEE00AC4665 /* Launcher.swift */,
 				CB1530682AF3E1EB0051FCA5 /* ApiManager.swift */,
 				CB87D9312AF66126001CA7F7 /* LoadingButton.swift */,
+				CB3942052AF840B800B9D287 /* PasswordTextField.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -513,13 +536,18 @@
 				CB15306D2AF42ABE0051FCA5 /* LoginViewModel.swift in Sources */,
 				CB3941FA2AF7F55C00B9D287 /* HomeRouter.swift in Sources */,
 				CB15303B2AF2D92C0051FCA5 /* LoginViewController.swift in Sources */,
+				CB3942022AF838ED00B9D287 /* ForgotPasswordViewModel.swift in Sources */,
 				CBAE47D32AF5500200AC4665 /* HomeViewModel.swift in Sources */,
 				CB15306B2AF428440051FCA5 /* TokenResponseModel.swift in Sources */,
 				CB1530372AF2D92C0051FCA5 /* AppDelegate.swift in Sources */,
+				CB3942062AF840B800B9D287 /* PasswordTextField.swift in Sources */,
 				CBAE47DB2AF57FEE00AC4665 /* Launcher.swift in Sources */,
 				CBAE47D12AF541B000AC4665 /* HomeViewController.swift in Sources */,
+				CB3942002AF8380100B9D287 /* ForgotPasswordViewController.swift in Sources */,
 				CBAE47D52AF5521400AC4665 /* SurveyListModel.swift in Sources */,
+				CB3942042AF83C0200B9D287 /* ForgotPasswordResponseModel.swift in Sources */,
 				CBAE47D92AF556AA00AC4665 /* Extensions.swift in Sources */,
+				CB3942082AF8476F00B9D287 /* ForgotPasswordRouter.swift in Sources */,
 				CB3941FD2AF7F59600B9D287 /* SurveyDetailsViewController.swift in Sources */,
 				CBAE47DD2AF5804300AC4665 /* LoginRouter.swift in Sources */,
 				CB1530392AF2D92C0051FCA5 /* SceneDelegate.swift in Sources */,

@@ -19,6 +19,7 @@ enum Constants: String {
     case surveyUrl = "https://survey-api.nimblehq.co/api/v1/surveys"
     case clientId = "ofzl-2h5ympKa0WqqTzqlVJUiRsxmXQmt5tkgrlWnOE"
     case clientSecret = "lMQb900L-mTeU-FVTCwyhjsfBwRCxwwbCitPob96cuU"
+    case forgotPasswordUrl = "https://survey-api.nimblehq.co/api/v1/passwords"
 }
 
 enum GrantType: String {
@@ -37,7 +38,7 @@ class ApiManager {
     
     func callApi<T: Codable>(urlString: String,
                              method: String,
-                             parameters: [String: String]?,
+                             parameters: [String: Any]?,
                              completion: @escaping (Result<T, APIError>) -> Void) {
         guard let url = URL(string: urlString) else {
             completion(.failure(.networkError))

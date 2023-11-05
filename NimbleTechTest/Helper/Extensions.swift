@@ -77,3 +77,30 @@ extension UIView {
         layer.insertSublayer(gradientLayer, at: 0)
     }
 }
+
+extension UIViewController {
+    func showAlert(title: String?, message: String, completionHandler: (() -> Void)?) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            completionHandler?() // Call the completion handler if it's not nil
+        }
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+    }
+}
+
+extension UITextField {
+    func setPlaceholderColor(_ color: UIColor) {
+        attributedPlaceholder = NSAttributedString(string: placeholder ?? "",
+                                                   attributes: [NSAttributedString.Key.foregroundColor: color])
+    }
+}
+
+extension UITextField {
+    func addBorder(withColor color: UIColor, cornerRadius radius: CGFloat, borderWidth width: CGFloat) {
+        layer.borderColor = color.cgColor
+        layer.borderWidth = width
+        layer.cornerRadius = radius
+        clipsToBounds = true
+    }
+}

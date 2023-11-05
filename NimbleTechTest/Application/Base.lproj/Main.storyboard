@@ -43,23 +43,25 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_white" translatesAutoresizingMaskIntoConstraints="NO" id="ahU-hV-5nx">
                                 <rect key="frame" x="106" y="241" width="202" height="48"/>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ex0-Lj-mCR">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ex0-Lj-mCR">
                                 <rect key="frame" x="24" y="390" width="366" height="56"/>
-                                <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                                <color key="backgroundColor" red="0.29019607843137252" green="0.28235294117647058" blue="0.26666666666666666" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="AOk-Fa-CMM"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="NeuzeitSLTStd-Book" family="Neuzeit S LT Std" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5FG-Ci-0sf">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5FG-Ci-0sf" customClass="PasswordTextField" customModule="NimbleTechTest" customModuleProvider="target">
                                 <rect key="frame" x="24" y="466" width="366" height="56"/>
-                                <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="56" id="7uZ-fW-iDe"/>
                                     <constraint firstAttribute="height" constant="56" id="khU-4b-LEp"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="NeuzeitSLTStd-Book" family="Neuzeit S LT Std" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H0t-8O-rlS" customClass="LoadingButton" customModule="NimbleTechTest" customModuleProvider="target">
@@ -71,7 +73,7 @@
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Log In">
-                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                    <fontDescription key="titleFontDescription" name="NeuzeitSLTStd-Book" family="Neuzeit S LT Std" pointSize="17"/>
                                 </buttonConfiguration>
                             </button>
                         </subviews>
@@ -99,12 +101,87 @@
                     <connections>
                         <outlet property="emailTextField" destination="ex0-Lj-mCR" id="Ju3-58-qkv"/>
                         <outlet property="loginButton" destination="H0t-8O-rlS" id="KBE-S9-sqS"/>
-                        <outlet property="passwordTextField" destination="5FG-Ci-0sf" id="gDR-ED-QI3"/>
+                        <outlet property="passwordTextField" destination="5FG-Ci-0sf" id="vpj-Ml-hgK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1710" y="15"/>
+        </scene>
+        <!--Forgot Password View Controller-->
+        <scene sceneID="caS-fh-jMC">
+            <objects>
+                <viewController storyboardIdentifier="ForgotPasswordViewController" id="br1-z4-GlV" customClass="ForgotPasswordViewController" customModule="NimbleTechTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="r8z-g4-ywc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="wXC-4U-JUz">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" toolTip="Email" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j5s-Kk-M6V">
+                                <rect key="frame" x="20" y="406" width="374" height="56"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="HOr-kv-oOJ"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="NeuzeitSLTStd-Book" family="Neuzeit S LT Std" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_white" translatesAutoresizingMaskIntoConstraints="NO" id="waC-gG-oCp">
+                                <rect key="frame" x="106" y="194" width="202" height="48"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your email to receive instructions for resetting your password.  " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yqp-y9-hdp">
+                                <rect key="frame" x="20" y="266" width="374" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="9MP-bd-65E"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="NeuzeitSLTStd-Book" family="Neuzeit S LT Std" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HwT-Ra-6Rr" customClass="LoadingButton" customModule="NimbleTechTest" customModuleProvider="target">
+                                <rect key="frame" x="20" y="486" width="374" height="56"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="36N-2O-odk"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Reset">
+                                    <fontDescription key="titleFontDescription" name="NeuzeitSLTStd-Book" family="Neuzeit S LT Std" pointSize="17"/>
+                                </buttonConfiguration>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="mEe-63-4ld"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="HwT-Ra-6Rr" firstAttribute="leading" secondItem="j5s-Kk-M6V" secondAttribute="leading" id="1v3-ml-r6q"/>
+                            <constraint firstItem="j5s-Kk-M6V" firstAttribute="leading" secondItem="mEe-63-4ld" secondAttribute="leading" constant="20" id="2P0-m1-Aru"/>
+                            <constraint firstItem="waC-gG-oCp" firstAttribute="top" secondItem="mEe-63-4ld" secondAttribute="top" constant="150" id="7O3-hR-jlv"/>
+                            <constraint firstItem="mEe-63-4ld" firstAttribute="trailing" secondItem="j5s-Kk-M6V" secondAttribute="trailing" constant="20" id="At7-yr-vYL"/>
+                            <constraint firstItem="HwT-Ra-6Rr" firstAttribute="trailing" secondItem="j5s-Kk-M6V" secondAttribute="trailing" id="BVR-xe-NOI"/>
+                            <constraint firstItem="j5s-Kk-M6V" firstAttribute="top" secondItem="Yqp-y9-hdp" secondAttribute="bottom" constant="96" id="CxK-Si-63h"/>
+                            <constraint firstItem="wXC-4U-JUz" firstAttribute="leading" secondItem="mEe-63-4ld" secondAttribute="leading" id="Izf-sn-1lZ"/>
+                            <constraint firstAttribute="bottom" secondItem="wXC-4U-JUz" secondAttribute="bottom" id="OcI-f3-Hrv"/>
+                            <constraint firstItem="mEe-63-4ld" firstAttribute="trailing" secondItem="wXC-4U-JUz" secondAttribute="trailing" id="PL6-fp-Mgc"/>
+                            <constraint firstItem="waC-gG-oCp" firstAttribute="centerX" secondItem="wXC-4U-JUz" secondAttribute="centerX" id="S7v-dk-PDH"/>
+                            <constraint firstItem="Yqp-y9-hdp" firstAttribute="top" secondItem="waC-gG-oCp" secondAttribute="bottom" constant="24" id="Ugn-vz-jWR"/>
+                            <constraint firstAttribute="trailing" secondItem="Yqp-y9-hdp" secondAttribute="trailing" constant="20" id="gql-rA-YPK"/>
+                            <constraint firstItem="HwT-Ra-6Rr" firstAttribute="top" secondItem="j5s-Kk-M6V" secondAttribute="bottom" constant="24" id="n9q-3c-wT8"/>
+                            <constraint firstItem="Yqp-y9-hdp" firstAttribute="leading" secondItem="mEe-63-4ld" secondAttribute="leading" constant="20" id="si6-9y-fUO"/>
+                            <constraint firstItem="wXC-4U-JUz" firstAttribute="top" secondItem="r8z-g4-ywc" secondAttribute="top" id="t0e-UW-gV9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="j5s-Kk-M6V" id="rWp-D9-UpU"/>
+                        <outlet property="resetButtn" destination="HwT-Ra-6Rr" id="1ZS-2s-9M6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S4i-vs-geg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1710" y="676"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="QDj-il-AVv">
@@ -114,7 +191,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="bYt-me-Sbg"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jtc-5g-uMh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -185,9 +262,6 @@
         <image name="logo_white" width="202" height="48"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGroupedBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
