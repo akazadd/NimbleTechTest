@@ -59,3 +59,21 @@ extension String {
         return nil
     }
 }
+
+extension UIView {
+    func applyGradient() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = bounds
+        
+        let colors: [UIColor] = [
+            UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.4),
+            UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.8)
+        ]
+        
+        gradientLayer.colors = colors.map { $0.cgColor }
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 1)
+        
+        layer.insertSublayer(gradientLayer, at: 0)
+    }
+}

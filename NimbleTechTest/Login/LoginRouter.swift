@@ -39,6 +39,7 @@ private extension DefaultLoginRouter {
     static func makeHomeViewController() -> UIViewController {
         let vc = HomeViewController.instantiate()
         vc.viewModel = HomeViewModel()
+        vc.router = DefaultHomeRouter()
         return vc
     }
 }

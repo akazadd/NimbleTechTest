@@ -31,8 +31,8 @@ class SurveyView: UIView {
     private func commonInit() {
         Bundle.main.loadNibNamed("SurveyView", owner: self, options: nil)
         addSubview(contentView)
-        contentView.frame = self.bounds
+        contentView.frame = bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        
+        contentView.applyGradient()
     }
 }

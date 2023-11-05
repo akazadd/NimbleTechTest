@@ -7,6 +7,11 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="NeuzeitSLTStd-Book.otf">
+            <string>NeuzeitSLTStd-Book</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="SJb-WW-XTr">
@@ -116,30 +121,58 @@
             </objects>
             <point key="canvasLocation" x="-1039.1304347826087" y="14.732142857142856"/>
         </scene>
-        <!--View Controller-->
+        <!--Survey Details View Controller-->
         <scene sceneID="Yxo-pC-6BT">
             <objects>
-                <viewController id="gkY-SI-T3g" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SurveyDetailsViewController" id="gkY-SI-T3g" customClass="SurveyDetailsViewController" customModule="NimbleTechTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kuk-1x-pO1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vOJ-Nx-0Hn">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="largeBG" translatesAutoresizingMaskIntoConstraints="NO" id="OvY-IP-RrH">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Working from home Check-In" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oFY-EF-CAC">
+                                <rect key="frame" x="20" y="100" width="338" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="NeuzeitSLTStd-Book" family="Neuzeit S LT Std" pointSize="28"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="We would like to know how you feel about our work from home..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BrS-uY-Ivc">
+                                <rect key="frame" x="20" y="172" width="338" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="NeuzeitSLTStd-Book" family="Neuzeit S LT Std" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vKb-D0-FIm">
+                                <rect key="frame" x="250" y="750" width="140" height="56"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="RXR-kX-jxN"/>
+                                    <constraint firstAttribute="width" constant="140" id="Vju-yo-ymG"/>
+                                </constraints>
+                                <color key="tintColor" red="0.082352941176470587" green="0.082352941176470587" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Start Servey">
+                                    <fontDescription key="titleFontDescription" name="NeuzeitSLTStd-Book" family="Neuzeit S LT Std" pointSize="17"/>
+                                </buttonConfiguration>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Ba-fl-o6H"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="vOJ-Nx-0Hn" firstAttribute="height" secondItem="kuk-1x-pO1" secondAttribute="height" constant="-34" id="6nu-4V-s1P"/>
-                            <constraint firstItem="vOJ-Nx-0Hn" firstAttribute="width" secondItem="kuk-1x-pO1" secondAttribute="width" id="DFd-C4-kjW"/>
-                            <constraint firstAttribute="trailing" secondItem="vOJ-Nx-0Hn" secondAttribute="trailing" id="JLK-O7-MA5"/>
-                            <constraint firstItem="vOJ-Nx-0Hn" firstAttribute="leading" secondItem="kuk-1x-pO1" secondAttribute="leading" id="Slw-64-x0n"/>
-                            <constraint firstItem="vOJ-Nx-0Hn" firstAttribute="top" secondItem="kuk-1x-pO1" secondAttribute="top" id="bjY-8f-72V"/>
-                            <constraint firstAttribute="bottom" secondItem="vOJ-Nx-0Hn" secondAttribute="bottom" constant="34" id="ndj-eJ-Vic"/>
+                            <constraint firstItem="6Ba-fl-o6H" firstAttribute="bottom" secondItem="vKb-D0-FIm" secondAttribute="bottom" constant="56" id="LcR-H0-nYu"/>
+                            <constraint firstItem="6Ba-fl-o6H" firstAttribute="trailing" secondItem="vKb-D0-FIm" secondAttribute="trailing" constant="24" id="b2A-Ca-do9"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="queryLbl" destination="BrS-uY-Ivc" id="CJk-aN-nC8"/>
+                        <outlet property="startServeyBtn" destination="vKb-D0-FIm" id="Pfi-Q2-Sof"/>
+                        <outlet property="titleLbl" destination="oFY-EF-CAC" id="Yaw-Qy-5pG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a9q-AZ-0zb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -148,6 +181,7 @@
     </scenes>
     <resources>
         <image name="background" width="375" height="812"/>
+        <image name="largeBG" width="375" height="812"/>
         <image name="logo_white" width="202" height="48"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
