@@ -29,6 +29,7 @@ enum GrantType: String {
 struct defaultKeys {
     static let refreshTokenKey = "refreshToken"
     static let accessTokenKey = "accessToken"
+    static let cachedSurveyData = "cachedSurveyData"
 }
 
 class ApiManager {

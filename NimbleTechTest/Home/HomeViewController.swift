@@ -63,11 +63,24 @@ class HomeViewController: UIViewController {
         // Show loading animation
         showLoadingAnimation()
         
+        // Attempt to load cached data
+        if let cachedSurveys = UserDefaults.standard.data(forKey: defaultKeys.cachedSurveyData) {
+            if let decodedSurveys = try? JSONDecoder().decode([SurveyList].self, from: cachedSurveys) {
+                self.viewModel.responseData = decodedSurveys
+                self.updateUI()
+            }
+        }
+        
         viewModel.fetchServeyListFromAPI(pageNumber: page, pageSize: size) { [weak self] in
             DispatchQueue.main.async {
                 // Hide loading animation
                 self?.hideLoadingAnimation()
                 self?.updateUI()
+                
+                // Cache the fetched data
+                if let surveysData = try? JSONEncoder().encode(self?.viewModel.responseData) {
+                    UserDefaults.standard.set(surveysData, forKey: defaultKeys.cachedSurveyData)
+                }
             }
         }
     }

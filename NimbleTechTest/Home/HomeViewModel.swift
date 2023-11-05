@@ -8,7 +8,7 @@
 import Foundation
 
 protocol HomeViewModelProtocol {
-    var responseData: [SurveyList]? { get }
+    var responseData: [SurveyList]? { get set }
     func fetchServeyListFromAPI(pageNumber: Int, pageSize: Int, completion: @escaping () -> Void)
 }
 
