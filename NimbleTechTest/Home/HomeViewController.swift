@@ -60,8 +60,13 @@ class HomeViewController: UIViewController {
     }
     
     func fetchData(page: Int, size: Int) {
+        // Show loading animation
+        showLoadingAnimation()
+        
         viewModel.fetchServeyListFromAPI(pageNumber: page, pageSize: size) { [weak self] in
             DispatchQueue.main.async {
+                // Hide loading animation
+                self?.hideLoadingAnimation()
                 self?.updateUI()
             }
         }
@@ -73,14 +78,29 @@ class HomeViewController: UIViewController {
         }
     }
     
-    @objc
-    func onActionButtonTap() {
-        
-    }
-    
     @objc func actionButtonTapped(_ sender: UIButton) {
         // Retrieve the index of the tapped survey view from the button's tag
         self.router.perform(.surveyDetails, from: self, attributes: viewModel.responseData?[sender.tag].attributes)
     }
 
+}
+
+//MARK: Loader
+extension HomeViewController {
+    func showLoadingAnimation() {
+        // Create and configure a UIActivityIndicatorView or a custom loading view
+        let loadingIndicator = UIActivityIndicatorView(style: .large)
+        loadingIndicator.center = view.center
+        loadingIndicator.startAnimating()
+        loadingIndicator.tag = 123 // Assign a unique tag to the loading view
+        view.addSubview(loadingIndicator)
+    }
+
+    func hideLoadingAnimation() {
+        // Find and remove the loading view based on its tag
+        if let loadingIndicator = view.viewWithTag(123) as? UIActivityIndicatorView {
+            loadingIndicator.stopAnimating()
+            loadingIndicator.removeFromSuperview()
+        }
+    }
 }
