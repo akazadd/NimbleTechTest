@@ -60,17 +60,20 @@ extension String {
     }
 }
 
-//extension UIView {
-//    func layerGradient() {
-//        let layer : CAGradientLayer = CAGradientLayer()
-//        layer.frame.size = self.frame.size
-//        layer.frame.origin = CGPoint(x: 0.0,y: 0.0)
-//        layer.cornerRadius = CGFloat(frame.width / 20)
-//
-//        let color0 = UIColor(red:255.0/255, green:255.0/255, blue:255.0/255, alpha:0.8).cgColor
-//        let color1 = UIColor(red:255.0/255, green:255.0/255, blue: 255.0/255, alpha:0.5).cgColor
-//        
-//        layer.colors = [color0,color1]
-//        self.layer.insertSublayer(layer, at: 0)
-//    }
-//}
+extension UIView {
+    func applyGradient() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = bounds
+        
+        let colors: [UIColor] = [
+            UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.4),
+            UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.8)
+        ]
+        
+        gradientLayer.colors = colors.map { $0.cgColor }
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 1)
+        
+        layer.insertSublayer(gradientLayer, at: 0)
+    }
+}

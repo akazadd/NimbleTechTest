@@ -12,7 +12,8 @@ import Kingfisher
 class HomeViewController: UIViewController {
     
     var viewModel: HomeViewModelProtocol!
-    
+    var router: HomeRouter!
+        
     private var scrollview = UIScrollView()
     
     static func instantiate() -> HomeViewController {
@@ -50,8 +51,9 @@ class HomeViewController: UIViewController {
             surveyView.backgroundImgView.kf.setImage(with: URL(string: survey?.cover_image_url ?? ""))
             surveyView.pageControl.numberOfPages = pages
             surveyView.pageControl.currentPage = page
+            surveyView.actionButton.tag = page
             
-//            surveyView.actionButton.addTarget(self, action: #selector(onActionButtonTap), for: .touchUpInside)
+            surveyView.actionButton.addTarget(self, action: #selector(actionButtonTapped(_:)), for: .touchUpInside)
                         
             scrollview.addSubview(surveyView)
         }
@@ -70,4 +72,15 @@ class HomeViewController: UIViewController {
             configureScrollView(pages: viewModel.responseData?.count ?? 0)
         }
     }
+    
+    @objc
+    func onActionButtonTap() {
+        
+    }
+    
+    @objc func actionButtonTapped(_ sender: UIButton) {
+        // Retrieve the index of the tapped survey view from the button's tag
+        self.router.perform(.surveyDetails, from: self, attributes: viewModel.responseData?[sender.tag].attributes)
+    }
+
 }
