@@ -14,7 +14,7 @@ protocol HomeViewModelProtocol {
 
 class HomeViewModel: HomeViewModelProtocol {
     var responseData: [SurveyList]?
-    private var apiManager = ApiManager()
+    var apiManager = ApiManager()
 
     func fetchServeyListFromAPI(pageNumber: Int, pageSize: Int, completion: @escaping () -> Void) {
         let urlString = Constants.surveyUrl.rawValue + "?page[number]=\(pageNumber)&page[size]=\(pageSize)"
