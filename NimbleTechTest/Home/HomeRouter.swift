@@ -21,8 +21,9 @@ class DefaultHomeRouter: HomeRouter {
         switch segue {
         case .surveyDetails:
             let vc = DefaultHomeRouter.makeSurveyDetailsViewController(with: attributes)
-            vc.modalPresentationStyle = .automatic
-            source.present(vc, animated: true, completion: nil)
+//            vc.modalPresentationStyle = .automatic
+//            source.present(vc, animated: true, completion: nil)
+            source.navigationController?.pushViewController(vc, animated: true)
         }
     }
 }
