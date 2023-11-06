@@ -22,8 +22,13 @@ class DefaultLoginRouter: LoginRouter {
     func perform(_ segue: LoginSegue, from source: LoginViewController) {
         switch segue {
         case .login:
-            UIApplication.shared.keyWindow?.rootViewController = DefaultLoginRouter.makeHomeViewController()
-            UIApplication.shared.keyWindow?.makeKeyAndVisible()
+//            UIApplication.shared.keyWindow?.rootViewController = DefaultLoginRouter.makeHomeViewController()
+//            UIApplication.shared.keyWindow?.makeKeyAndVisible()
+            let vc = DefaultLoginRouter.makeHomeViewController()
+//            source.navigationController.setro
+            UIApplication.shared.windows.first?.rootViewController = UINavigationController(rootViewController: vc)
+            UIApplication.shared.windows.first?.makeKeyAndVisible()
+//            source.navigationController = UINavigationController(rootViewController: vc)
         case .forgotPassword:
             let vc = DefaultLoginRouter.makeForgotPasswordViewController()
             source.navigationController?.pushViewController(vc, animated: true)

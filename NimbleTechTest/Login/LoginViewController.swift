@@ -15,6 +15,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: PasswordTextField!
     @IBOutlet weak var loginButton: LoadingButton!
+    @IBOutlet weak var stackViewBottomConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +23,7 @@ class LoginViewController: UIViewController {
         
         configureUIActions()
         configureUI()
+        registerForKeyboardNotifications()
     }
     
     private func configureUI() {
@@ -57,13 +59,13 @@ class LoginViewController: UIViewController {
                         }
                     case .failure:
                         self.loginButton.hideLoading()
-                        print("Login failed")
+                        self.showAlert(title: "Ooops!", message: "Login failed, please try again!", completionHandler: nil)
                     }
                 }
             case false:
                 //Show Error
                 self.loginButton.hideLoading()
-                print(message!)
+                self.showAlert(title: "Ooops!", message: "Invalid email, please try again!", completionHandler: nil)
             }
         }
     }
@@ -72,11 +74,27 @@ class LoginViewController: UIViewController {
 extension LoginViewController {
     @objc private func forgotPasswordLabelTapped() {
         // Handle "Forgot Password" action
-        print("Forgot Password tapped")
-        
-        // Call your forgot password functionality here
-        // Example: viewModel.forgotPassword()
         self.router.perform(.forgotPassword, from: self)
+    }
+}
+
+//MARK: Keyboard Handler
+extension LoginViewController {
+    private func registerForKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    // Handle keyboard notifications
+    @objc func keyboardWillShow(_ notification: Notification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            let bottomInset = keyboardSize.height
+            stackViewBottomConstraint.constant = bottomInset
+        }
+    }
+    
+    @objc func keyboardWillHide(_ notification: Notification) {
+        stackViewBottomConstraint.constant = 260
     }
 }
 
