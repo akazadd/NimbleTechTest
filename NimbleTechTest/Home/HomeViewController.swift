@@ -64,7 +64,7 @@ class HomeViewController: UIViewController {
             
             let survey = viewModel.responseData?[page].attributes
 			surveyView.dateLabel.text = survey?.created_at?.formattedDateString()?.uppercased()
-            surveyView.dayLabel.text = survey?.active_at?.formattedDayString()
+            surveyView.dayLabel.text = survey?.created_at?.formattedDayString()
             surveyView.titleLabel.text = survey?.title
             surveyView.queryLabel.text = survey?.description
 			let imageUrl = survey?.cover_image_url

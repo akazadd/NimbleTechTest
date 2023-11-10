@@ -47,17 +47,22 @@ extension String {
         return nil
     }
     
-    func formattedDayString() -> String? {
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-        
-        if let date = dateFormatter.date(from: self) {
-            dateFormatter.dateFormat = "EEEE"
-            return dateFormatter.string(from: date)
-        }
-        return nil
-    }
+	func formattedDayString() -> String? {
+		let dateFormatter = DateFormatter()
+		dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+		dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+		
+		if let date = dateFormatter.date(from: self) {
+			let calendar = Calendar.current
+			if calendar.isDateInToday(date) {
+				return "Today"
+			} else {
+				dateFormatter.dateFormat = "EEEE"
+				return dateFormatter.string(from: date)
+			}
+		}
+		return nil
+	}
 }
 
 extension UIView {
