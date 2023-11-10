@@ -29,10 +29,16 @@ class LoginViewController: UIViewController {
     private func configureUI() {
         [emailTextField,passwordTextField] .forEach { textfield in
 			textfield?.setPlaceholderColor(.lightGray)
+			textfield?.delegate = self
         }
         loginButton.layer.cornerRadius = 12.0
-		emailTextField.layer.cornerRadius = 12.0
-		passwordTextField.layer.cornerRadius = 12.0
+		loginButton.titleLabel?.letterSpacing = -0.41
+		
+		emailTextField.addCornerRadius(cornerRadius: 12.0)
+		emailTextField.font = UIFont(name: "NeuzeitSLTStd-Book", size: 17)?.withWeight(UIFont.Weight(rawValue: 400))
+		emailTextField.letterSpacing = -0.41
+		
+		passwordTextField.addCornerRadius(cornerRadius: 12.0)
     }
 
     private func configureUIActions() {
@@ -97,5 +103,12 @@ extension LoginViewController {
     @objc func keyboardWillHide(_ notification: Notification) {
         stackViewBottomConstraint.constant = 260
     }
+}
+
+extension LoginViewController: UITextFieldDelegate {
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+		textField.resignFirstResponder()
+		return true
+	}
 }
 

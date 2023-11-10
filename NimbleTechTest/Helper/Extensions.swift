@@ -108,6 +108,11 @@ extension UITextField {
         layer.cornerRadius = radius
         clipsToBounds = true
     }
+	
+	func addCornerRadius(cornerRadius radius: CGFloat) {
+		layer.cornerRadius = radius
+		clipsToBounds = true
+	}
 }
 
 // Extension to handle letter spacing
@@ -137,6 +142,21 @@ extension UIFont {
 		attributes[.family] = "NeuzeitSLTStd"
 		let descriptor = UIFontDescriptor(fontAttributes: attributes)
 		return UIFont(descriptor: descriptor, size: pointSize)
+	}
+}
+
+extension UITextField {
+	var letterSpacing: CGFloat {
+		get {
+			guard let attributedText = attributedText else { return 0 }
+			return attributedText.attributes(at: 0, effectiveRange: nil)[.kern] as? CGFloat ?? 0
+		}
+		set {
+			guard let text = text else { return }
+			let attributedString = NSMutableAttributedString(string: text)
+			attributedString.addAttribute(.kern, value: newValue, range: NSRange(location: 0, length: attributedString.length))
+			attributedText = attributedString
+		}
 	}
 }
 

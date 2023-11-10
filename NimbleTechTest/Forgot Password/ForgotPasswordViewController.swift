@@ -32,8 +32,10 @@ class ForgotPasswordViewController: UIViewController {
     
     private func configureUI() {
         resetButtn.layer.cornerRadius = 12.0
-        emailTextField.addBorder(withColor: .white, cornerRadius: 12, borderWidth: 0.2)
-        emailTextField.setPlaceholderColor(.white)
+		emailTextField.addCornerRadius(cornerRadius: 12.0)
+        emailTextField.setPlaceholderColor(.lightGray)
+		emailTextField.delegate = self
+		emailTextField.font = UIFont(name: "NeuzeitSLTStd-Book", size: 17)?.withWeight(UIFont.Weight(rawValue: 400))
         
         resetButtn.addTarget(self, action: #selector(resetPasswordButtonTapped(_:)), for: .touchUpInside)
     }
@@ -96,4 +98,11 @@ extension ForgotPasswordViewController {
     @objc func keyboardWillHide(_ notification: Notification) {
         stackViewBottomConstraint.constant = 260
     }
+}
+
+extension ForgotPasswordViewController: UITextFieldDelegate {
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+		textField.resignFirstResponder()
+		return true
+	}
 }
