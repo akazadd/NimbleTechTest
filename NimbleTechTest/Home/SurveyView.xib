@@ -36,7 +36,7 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </imageView>
                 <pageControl opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="1gq-Lf-dGM">
-                    <rect key="frame" x="20" y="668" width="116.5" height="40"/>
+                    <rect key="frame" x="0.0" y="668" width="116.5" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="EmF-ph-96c"/>
                     </constraints>
@@ -113,10 +113,10 @@
                 <constraint firstItem="yPL-rq-GdR" firstAttribute="trailing" secondItem="SAU-9V-qCw" secondAttribute="trailing" constant="20" id="KAO-wD-f4a"/>
                 <constraint firstAttribute="trailing" secondItem="eic-En-pKN" secondAttribute="trailing" id="YcY-8k-2La"/>
                 <constraint firstItem="sxv-Ce-6oY" firstAttribute="leading" secondItem="yPL-rq-GdR" secondAttribute="leading" constant="20" id="ZC4-RQ-8bu"/>
+                <constraint firstItem="1gq-Lf-dGM" firstAttribute="leading" secondItem="yPL-rq-GdR" secondAttribute="leading" id="dnq-xb-8kI"/>
                 <constraint firstAttribute="top" secondItem="eic-En-pKN" secondAttribute="top" id="e2F-Fq-xjt"/>
                 <constraint firstItem="SAU-9V-qCw" firstAttribute="leading" secondItem="0SL-AW-qVG" secondAttribute="trailing" constant="32" id="fzG-qk-MkI"/>
                 <constraint firstItem="yPL-rq-GdR" firstAttribute="bottom" secondItem="0SL-AW-qVG" secondAttribute="bottom" constant="40" id="kCf-w7-y4B"/>
-                <constraint firstItem="1gq-Lf-dGM" firstAttribute="leading" secondItem="yPL-rq-GdR" secondAttribute="leading" constant="20" id="pB0-ey-r54"/>
                 <constraint firstItem="eic-En-pKN" firstAttribute="leading" secondItem="ti0-yW-OmF" secondAttribute="leading" id="rz1-qt-cTM"/>
                 <constraint firstItem="vP7-ig-NiP" firstAttribute="trailing" secondItem="0SL-AW-qVG" secondAttribute="trailing" id="tjE-pO-him"/>
                 <constraint firstItem="vP7-ig-NiP" firstAttribute="top" secondItem="1gq-Lf-dGM" secondAttribute="bottom" constant="8" symbolic="YES" id="vxJ-iu-83o"/>
