@@ -157,23 +157,23 @@ class LoginViewModel {
 			"client_secret": Constants.clientSecret.rawValue
 		]
 		
-		apiManager.callApi(urlString: urlString, method: "POST", parameters: postParameters) { [weak self] (result: Result<TokenResponseBase, APIError>) in
+		apiManager.callApi(urlString: urlString, method: .post, parameters: postParameters) { [weak self] (result: Result<TokenResponseBase, APIError>) in
 			guard let self = self else { return }
 			
 			switch result {
-			case .success(let response):
-				print("response: \(response)")
-				self.apiManager.saveAccessToken(response.data?.attributes?.accessToken ?? "")
-				DispatchQueue.main.async { [weak self] in
-					self?.onLoginSuccess?()
-				}
-			case .failure(let error):
-				if error == .accessTokenExpired {
-					self.handleAccessTokenExpired()
-				}
-				DispatchQueue.main.async { [weak self] in
-					self?.onLoginFailure?("Login failed, please try again!")
-				}
+				case .success(let response):
+					self.apiManager.saveAccessToken(response.data?.attributes?.accessToken ?? "")
+					self.apiManager.saveRefreshToken(response.data?.attributes?.refreshToken ?? "")
+					DispatchQueue.main.async { [weak self] in
+						self?.onLoginSuccess?()
+					}
+				case .failure(let error):
+					if error == .accessTokenExpired {
+						self.handleAccessTokenExpired()
+					}
+					DispatchQueue.main.async { [weak self] in
+						self?.onLoginFailure?("Login failed, please try again!")
+					}
 			}
 		}
 	}
@@ -181,10 +181,10 @@ class LoginViewModel {
 	func handleAccessTokenExpired() {
 		apiManager.refreshAccessToken { result in
 			switch result {
-			case .success:
-				print("successfully refreshed access token")
-			case .failure:
-				print("failed to refresh access token")
+				case .success:
+					print("successfully refreshed access token")
+				case .failure:
+					print("failed to refresh access token")
 			}
 		}
 	}

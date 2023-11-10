@@ -19,7 +19,7 @@ class HomeViewModel: HomeViewModelProtocol {
     func fetchServeyListFromAPI(pageNumber: Int, pageSize: Int, completion: @escaping () -> Void) {
         let urlString = Constants.surveyUrl.rawValue + "?page[number]=\(pageNumber)&page[size]=\(pageSize)"
         
-        apiManager.callApi(urlString: urlString, method: "GET", parameters: nil) { [unowned self] (result: Result<SurveyListModel, APIError>) in
+		apiManager.callApi(urlString: urlString, method: .get, parameters: nil) { [unowned self] (result: Result<SurveyListModel, APIError>) in
             switch result {
             case .success(let response):
                 self.responseData = response.surveyList
