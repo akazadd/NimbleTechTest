@@ -63,11 +63,13 @@ class HomeViewController: UIViewController {
             let surveyView = SurveyView(frame: CGRect(x: CGFloat(page) * view.frame.size.width, y: 0, width: view.frame.size.width, height: view.frame.size.height))
             
             let survey = viewModel.responseData?[page].attributes
-            surveyView.dateLabel.text = survey?.created_at?.formattedDateString()
-            surveyView.dayLabel.text = survey?.active_at?.formattedDayString()
+			surveyView.dateLabel.text = survey?.created_at?.formattedDateString()?.uppercased()
+            surveyView.dayLabel.text = survey?.created_at?.formattedDayString()
             surveyView.titleLabel.text = survey?.title
             surveyView.queryLabel.text = survey?.description
-            surveyView.backgroundImgView.kf.setImage(with: URL(string: survey?.cover_image_url ?? ""))
+			let imageUrl = survey?.cover_image_url
+			let highResulutionImageUrl = (imageUrl ?? "") + "l"
+            surveyView.backgroundImgView.kf.setImage(with: URL(string: highResulutionImageUrl))
             surveyView.pageControl.numberOfPages = pages
             surveyView.pageControl.currentPage = page
             surveyView.actionButton.tag = page
