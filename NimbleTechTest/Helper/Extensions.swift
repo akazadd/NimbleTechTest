@@ -104,3 +104,34 @@ extension UITextField {
         clipsToBounds = true
     }
 }
+
+// Extension to handle letter spacing
+extension UILabel {
+	var letterSpacing: CGFloat {
+		get {
+			guard let attributedText = attributedText else { return 0 }
+			return attributedText.attributes(at: 0, effectiveRange: nil)[.kern] as? CGFloat ?? 0
+		}
+		set {
+			guard let text = text else { return }
+			let attributedString = NSMutableAttributedString(string: text)
+			attributedString.addAttribute(.kern, value: newValue, range: NSRange(location: 0, length: attributedString.length))
+			attributedText = attributedString
+		}
+	}
+}
+
+// Extension to handle font weight
+extension UIFont {
+	func withWeight(_ weight: UIFont.Weight) -> UIFont {
+		var attributes = fontDescriptor.fontAttributes
+		var traits = (attributes[.traits] as? [UIFontDescriptor.TraitKey: Any]) ?? [:]
+		traits[.weight] = weight
+		attributes[.name] = nil
+		attributes[.traits] = traits
+		attributes[.family] = "NeuzeitSLTStd"
+		let descriptor = UIFontDescriptor(fontAttributes: attributes)
+		return UIFont(descriptor: descriptor, size: pointSize)
+	}
+}
+

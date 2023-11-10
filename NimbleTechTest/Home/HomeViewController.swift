@@ -63,7 +63,7 @@ class HomeViewController: UIViewController {
             let surveyView = SurveyView(frame: CGRect(x: CGFloat(page) * view.frame.size.width, y: 0, width: view.frame.size.width, height: view.frame.size.height))
             
             let survey = viewModel.responseData?[page].attributes
-            surveyView.dateLabel.text = survey?.created_at?.formattedDateString()
+			surveyView.dateLabel.text = survey?.created_at?.formattedDateString()?.uppercased()
             surveyView.dayLabel.text = survey?.active_at?.formattedDayString()
             surveyView.titleLabel.text = survey?.title
             surveyView.queryLabel.text = survey?.description
