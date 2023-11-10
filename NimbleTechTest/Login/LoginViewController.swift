@@ -28,10 +28,11 @@ class LoginViewController: UIViewController {
     
     private func configureUI() {
         [emailTextField,passwordTextField] .forEach { textfield in
-//			textfield?.addBorder(withColor: .darkGray, cornerRadius: 12.0, borderWidth: 0.5)
-			textfield?.setPlaceholderColor(.white)
+			textfield?.setPlaceholderColor(.lightGray)
         }
         loginButton.layer.cornerRadius = 12.0
+		emailTextField.layer.cornerRadius = 12.0
+		passwordTextField.layer.cornerRadius = 12.0
     }
 
     private func configureUIActions() {
