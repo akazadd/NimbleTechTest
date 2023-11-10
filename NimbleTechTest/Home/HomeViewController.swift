@@ -67,7 +67,9 @@ class HomeViewController: UIViewController {
             surveyView.dayLabel.text = survey?.active_at?.formattedDayString()
             surveyView.titleLabel.text = survey?.title
             surveyView.queryLabel.text = survey?.description
-            surveyView.backgroundImgView.kf.setImage(with: URL(string: survey?.cover_image_url ?? ""))
+			let imageUrl = survey?.cover_image_url
+			let highResulutionImageUrl = (imageUrl ?? "") + "l"
+            surveyView.backgroundImgView.kf.setImage(with: URL(string: highResulutionImageUrl))
             surveyView.pageControl.numberOfPages = pages
             surveyView.pageControl.currentPage = page
             surveyView.actionButton.tag = page
