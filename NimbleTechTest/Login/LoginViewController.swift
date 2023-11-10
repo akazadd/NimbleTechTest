@@ -24,6 +24,20 @@ class LoginViewController: UIViewController {
         configureUIActions()
         configureUI()
         registerForKeyboardNotifications()
+		
+		// Set up ViewModel callbacks
+		viewModel.onLoginSuccess = { [weak self] in
+			guard let self = self else { return }
+			self.loginButton.hideLoading()
+			self.router.perform(.login, from: self)
+		}
+		
+		viewModel.onLoginFailure = { [weak self] errorMessage in
+			guard let self = self else { return }
+			self.loginButton.hideLoading()
+			self.showAlert(title: "Ooops!", message: errorMessage, completionHandler: nil)
+		}
+		
     }
     
     private func configureUI() {
@@ -50,31 +64,8 @@ class LoginViewController: UIViewController {
     @objc func onLoginButtonTap() {
         self.view.endEditing(true)
         loginButton.showLoading()
-        viewModel.validateInput(emailTextField.text, password: passwordTextField.text) { [weak self] (valid, message) in
-            guard let self = self else { return }
-            
-            switch valid {
-            case true:
-                let loginRequestInfo = LoginRequestInfo(email: self.emailTextField.text!, password: self.passwordTextField.text!)
-                self.viewModel.login(loginRequestInfo) { result in
-                    switch result {
-                    case .success:
-                        print("Login Successful")
-                        self.loginButton.hideLoading()
-                        DispatchQueue.main.async {
-                            self.router.perform(.login, from: self)
-                        }
-                    case .failure:
-                        self.loginButton.hideLoading()
-                        self.showAlert(title: "Ooops!", message: "Login failed, please try again!", completionHandler: nil)
-                    }
-                }
-            case false:
-                //Show Error
-                self.loginButton.hideLoading()
-                self.showAlert(title: "Ooops!", message: "Invalid email, please try again!", completionHandler: nil)
-            }
-        }
+		
+		viewModel.validateAndLogin(email: emailTextField.text, password: passwordTextField.text)
     }
 }
 

@@ -27,7 +27,7 @@ class ForgotPasswordViewModel {
             "client_secret": Constants.clientSecret.rawValue
         ] as [String : Any]
         
-        apiManager.callApi(urlString: urlString, method: "POST", parameters: parameters) { (result: Result<ForgotPasswordResponse, APIError>) in
+		apiManager.callApi(urlString: urlString, method: .post, parameters: parameters) { (result: Result<ForgotPasswordResponse, APIError>) in
             switch result {
             case .success(let response):
                 let message = response.meta.message
