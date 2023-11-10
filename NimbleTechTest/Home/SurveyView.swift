@@ -34,5 +34,17 @@ class SurveyView: UIView {
         contentView.frame = bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         contentView.applyGradient()
+		
+		dateLabel.font = UIFont(name: "NeuzeitSLTStd-Book", size: 13)?.withWeight(UIFont.Weight(rawValue: 800))
+		dayLabel.letterSpacing = -0.08
+		
+		dayLabel.font = UIFont(name: "NeuzeitSLTStd-Book", size: 34)?.withWeight(UIFont.Weight(rawValue: 800))
+		dayLabel.letterSpacing = -1
+		
+		titleLabel.font = UIFont(name: "NeuzeitSLTStd-Book", size: 28)?.withWeight(UIFont.Weight(rawValue: 2000))
+		titleLabel.letterSpacing = -0.5
+		
+		queryLabel.font = UIFont(name: "NeuzeitSLTStd-Book", size: 17)?.withWeight(UIFont.Weight(rawValue: 400))
+		queryLabel.letterSpacing = -0.41
     }
 }

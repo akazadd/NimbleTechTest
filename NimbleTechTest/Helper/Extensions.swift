@@ -47,17 +47,22 @@ extension String {
         return nil
     }
     
-    func formattedDayString() -> String? {
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-        
-        if let date = dateFormatter.date(from: self) {
-            dateFormatter.dateFormat = "EEEE"
-            return dateFormatter.string(from: date)
-        }
-        return nil
-    }
+	func formattedDayString() -> String? {
+		let dateFormatter = DateFormatter()
+		dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+		dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+		
+		if let date = dateFormatter.date(from: self) {
+			let calendar = Calendar.current
+			if calendar.isDateInToday(date) {
+				return "Today"
+			} else {
+				dateFormatter.dateFormat = "EEEE"
+				return dateFormatter.string(from: date)
+			}
+		}
+		return nil
+	}
 }
 
 extension UIView {
@@ -104,3 +109,34 @@ extension UITextField {
         clipsToBounds = true
     }
 }
+
+// Extension to handle letter spacing
+extension UILabel {
+	var letterSpacing: CGFloat {
+		get {
+			guard let attributedText = attributedText else { return 0 }
+			return attributedText.attributes(at: 0, effectiveRange: nil)[.kern] as? CGFloat ?? 0
+		}
+		set {
+			guard let text = text else { return }
+			let attributedString = NSMutableAttributedString(string: text)
+			attributedString.addAttribute(.kern, value: newValue, range: NSRange(location: 0, length: attributedString.length))
+			attributedText = attributedString
+		}
+	}
+}
+
+// Extension to handle font weight
+extension UIFont {
+	func withWeight(_ weight: UIFont.Weight) -> UIFont {
+		var attributes = fontDescriptor.fontAttributes
+		var traits = (attributes[.traits] as? [UIFontDescriptor.TraitKey: Any]) ?? [:]
+		traits[.weight] = weight
+		attributes[.name] = nil
+		attributes[.traits] = traits
+		attributes[.family] = "NeuzeitSLTStd"
+		let descriptor = UIFontDescriptor(fontAttributes: attributes)
+		return UIFont(descriptor: descriptor, size: pointSize)
+	}
+}
+
