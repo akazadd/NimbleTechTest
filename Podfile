@@ -7,7 +7,7 @@ target 'NimbleTechTest' do
 
   pod 'KeychainAccess'
   pod 'AMShimmer'
-  pod 'Kingfisher', '7.0.0'
+  pod 'Kingfisher', '7.6.1'
 
   # Pods for NimbleTechTest
 
