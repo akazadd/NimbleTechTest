@@ -26,7 +26,7 @@ class PasswordTextField: UITextField {
         // Forgot Password label
         forgotPasswordLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 60, height: frame.height))
         forgotPasswordLabel.text = "Forgot?  "
-        forgotPasswordLabel.textColor = .white
+        forgotPasswordLabel.textColor = .lightGray
         forgotPasswordLabel.textAlignment = .center
         forgotPasswordLabel.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(forgotPasswordTapped))
