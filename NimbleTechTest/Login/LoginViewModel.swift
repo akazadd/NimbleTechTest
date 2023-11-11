@@ -161,30 +161,14 @@ class LoginViewModel {
 			guard let self = self else { return }
 			
 			switch result {
-				case .success(let response):
-					self.apiManager.saveAccessToken(response.data?.attributes?.accessToken ?? "")
-					self.apiManager.saveRefreshToken(response.data?.attributes?.refreshToken ?? "")
+				case .success(_):
 					DispatchQueue.main.async { [weak self] in
 						self?.onLoginSuccess?()
 					}
-				case .failure(let error):
-					if error == .accessTokenExpired {
-						self.handleAccessTokenExpired()
-					}
+				case .failure(_):
 					DispatchQueue.main.async { [weak self] in
 						self?.onLoginFailure?("Login failed, please try again!")
 					}
-			}
-		}
-	}
-	
-	func handleAccessTokenExpired() {
-		apiManager.refreshAccessToken { result in
-			switch result {
-				case .success:
-					print("successfully refreshed access token")
-				case .failure:
-					print("failed to refresh access token")
 			}
 		}
 	}

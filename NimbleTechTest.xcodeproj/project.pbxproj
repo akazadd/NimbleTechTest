@@ -10,6 +10,7 @@
 		1068FA8CC613D844A0D81437 /* Pods_NimbleTechTest_NimbleTechTestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D871F550CB0B73F44A16A14 /* Pods_NimbleTechTest_NimbleTechTestUITests.framework */; };
 		1D8D2E4503FDF878CF38978D /* Pods_NimbleTechTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9BDC0869D382D5EB8E448F8 /* Pods_NimbleTechTestTests.framework */; };
 		6EE2C0D96233243D61A45910 /* Pods_NimbleTechTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACD53EE4CF4A65AB84810251 /* Pods_NimbleTechTest.framework */; };
+		A2903F9B2AFF338F00749443 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2903F9A2AFF338F00749443 /* TokenManager.swift */; };
 		CB1530372AF2D92C0051FCA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1530362AF2D92C0051FCA5 /* AppDelegate.swift */; };
 		CB1530392AF2D92C0051FCA5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1530382AF2D92C0051FCA5 /* SceneDelegate.swift */; };
 		CB15303B2AF2D92C0051FCA5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB15303A2AF2D92C0051FCA5 /* LoginViewController.swift */; };
@@ -69,6 +70,7 @@
 		6DEB1000AA29B54F0EC0B5B6 /* Pods-NimbleTechTest-NimbleTechTestUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NimbleTechTest-NimbleTechTestUITests.release.xcconfig"; path = "Target Support Files/Pods-NimbleTechTest-NimbleTechTestUITests/Pods-NimbleTechTest-NimbleTechTestUITests.release.xcconfig"; sourceTree = "<group>"; };
 		74D76ED487EA1CD06443D28E /* Pods-NimbleTechTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NimbleTechTestTests.release.xcconfig"; path = "Target Support Files/Pods-NimbleTechTestTests/Pods-NimbleTechTestTests.release.xcconfig"; sourceTree = "<group>"; };
 		98A6F53B8422A322039866F9 /* Pods-NimbleTechTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NimbleTechTest.release.xcconfig"; path = "Target Support Files/Pods-NimbleTechTest/Pods-NimbleTechTest.release.xcconfig"; sourceTree = "<group>"; };
+		A2903F9A2AFF338F00749443 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		ACD53EE4CF4A65AB84810251 /* Pods_NimbleTechTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NimbleTechTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C645D82DAFF087C4D68943B0 /* Pods-NimbleTechTest-NimbleTechTestUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NimbleTechTest-NimbleTechTestUITests.debug.xcconfig"; path = "Target Support Files/Pods-NimbleTechTest-NimbleTechTestUITests/Pods-NimbleTechTest-NimbleTechTestUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CB1530332AF2D92C0051FCA5 /* NimbleTechTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NimbleTechTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -281,6 +283,7 @@
 				CB1530682AF3E1EB0051FCA5 /* ApiManager.swift */,
 				CB87D9312AF66126001CA7F7 /* LoadingButton.swift */,
 				CB3942052AF840B800B9D287 /* PasswordTextField.swift */,
+				A2903F9A2AFF338F00749443 /* TokenManager.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -547,6 +550,7 @@
 				CB15306B2AF428440051FCA5 /* TokenResponseModel.swift in Sources */,
 				CB1530372AF2D92C0051FCA5 /* AppDelegate.swift in Sources */,
 				CB3942062AF840B800B9D287 /* PasswordTextField.swift in Sources */,
+				A2903F9B2AFF338F00749443 /* TokenManager.swift in Sources */,
 				CBAE47DB2AF57FEE00AC4665 /* Launcher.swift in Sources */,
 				CBAE47D12AF541B000AC4665 /* HomeViewController.swift in Sources */,
 				CB3942002AF8380100B9D287 /* ForgotPasswordViewController.swift in Sources */,
