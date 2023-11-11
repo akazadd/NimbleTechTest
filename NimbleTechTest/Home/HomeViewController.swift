@@ -36,9 +36,10 @@ class HomeViewController: UIViewController {
         
         // Add refresh control to the view
         scrollview.refreshControl = refreshControl
+		scrollview.delegate = self
         
         // Fetch data when the view loads
-        fetchData(page: 1, size: 5)
+        fetchData()
     }
     
     override func viewDidLayoutSubviews() {
@@ -52,53 +53,57 @@ class HomeViewController: UIViewController {
         scrollview.contentOffset = CGPoint(x: 0.0, y: 0.0)
         scrollview.contentInsetAdjustmentBehavior = .never
     }
-    
-    func configureScrollView(pages: Int) {
-        scrollview.contentSize = CGSize(width: view.frame.size.width*5, height: view.frame.size.height)
-        scrollview.isPagingEnabled = true
-        
-        for page in 0..<pages {
-            let surveyView = SurveyView(frame: CGRect(x: CGFloat(page) * view.frame.size.width, y: 0, width: view.frame.size.width, height: view.frame.size.height))
-            
-            let survey = viewModel.responseData?[page].attributes
+	
+	func configureScrollView() {
+		
+		guard let viewModel = viewModel, let pages = viewModel.responseData?.count else { return }
+		
+		// Remove existing surveyViews
+		scrollview.subviews.forEach { $0.removeFromSuperview() }
+		
+		scrollview.contentSize = CGSize(width: view.frame.size.width * CGFloat(pages), height: view.frame.size.height)
+		scrollview.isPagingEnabled = true
+		
+		for page in 0..<pages {
+			let surveyView = SurveyView(frame: CGRect(x: CGFloat(page) * view.frame.size.width, y: 0, width: view.frame.size.width, height: view.frame.size.height))
+			
+			let survey = viewModel.responseData?[page].attributes
 			surveyView.dateLabel.text = survey?.created_at?.formattedDateString()?.uppercased()
-            surveyView.dayLabel.text = survey?.created_at?.formattedDayString()
-            surveyView.titleLabel.text = survey?.title
-            surveyView.queryLabel.text = survey?.description
+			surveyView.dayLabel.text = survey?.created_at?.formattedDayString()
+			surveyView.titleLabel.text = survey?.title
+			surveyView.queryLabel.text = survey?.description
 			let imageUrl = survey?.cover_image_url
 			let highResulutionImageUrl = (imageUrl ?? "") + "l"
-            surveyView.backgroundImgView.kf.setImage(with: URL(string: highResulutionImageUrl))
-            surveyView.pageControl.numberOfPages = pages
-            surveyView.pageControl.currentPage = page
-            surveyView.actionButton.tag = page
-            
-            surveyView.actionButton.addTarget(self, action: #selector(actionButtonTapped(_:)), for: .touchUpInside)
-                        
-            scrollview.addSubview(surveyView)
-        }
-    }
+			surveyView.backgroundImgView.kf.setImage(with: URL(string: highResulutionImageUrl))
+			surveyView.pageControl.numberOfPages = pages
+			surveyView.pageControl.currentPage = page
+			surveyView.actionButton.tag = page
+			
+			surveyView.actionButton.addTarget(self, action: #selector(actionButtonTapped(_:)), for: .touchUpInside)
+			
+			scrollview.addSubview(surveyView)
+		}
+	}
+
     
-    func fetchData(page: Int, size: Int) {
+    func fetchData() {
         // Show loading animation
         showLoadingAnimation()
         
         // Attempt to load cached data
 		viewModel.loadCachedSurveys()
         
-        viewModel.fetchServeyListFromAPI(pageNumber: page, pageSize: size) { [weak self] in
+        viewModel.fetchServeyListFromAPI() { [weak self] in
             DispatchQueue.main.async {
                 // Hide loading animation
                 self?.hideLoadingAnimation()
-                self?.updateUI()
+				
+                self?.configureScrollView()
                 
                 // End the refresh control
                 self?.refreshControl.endRefreshing()
             }
         }
-    }
-    
-    private func updateUI() {
-        configureScrollView(pages: viewModel.responseData?.count ?? 0)
     }
     
     @objc func actionButtonTapped(_ sender: UIButton) {
@@ -108,9 +113,9 @@ class HomeViewController: UIViewController {
     
     @objc private func handleRefresh(_ sender: Any) {
         // Fetch new data from the API
-        fetchData(page: 1, size: 5)
+		viewModel.pageNumber = 1
+        fetchData()
     }
-
 }
 
 //MARK: Loader
@@ -131,4 +136,19 @@ extension HomeViewController {
             loadingIndicator.removeFromSuperview()
         }
     }
+}
+
+extension HomeViewController: UIScrollViewDelegate {
+	func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+		let currentPage = Int(scrollView.contentOffset.x / scrollView.frame.size.width)
+		// Set this based on API response
+		let totalPages = viewModel.responseData?.count ?? 0
+		
+		// Check if the user has scrolled to the last page
+		if currentPage == totalPages - 1 {
+			// Fetch the next page
+			viewModel.pageNumber +=  1
+			fetchData()
+		}
+	}
 }
