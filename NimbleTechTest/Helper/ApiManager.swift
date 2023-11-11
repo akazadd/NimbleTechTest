@@ -13,6 +13,8 @@ enum APIError: Error {
     case accessTokenExpired
     case networkError
 	case parsingError
+	case noNetwork
+	case invalidGrant
     //more error case as needed
 }
 
@@ -35,6 +37,13 @@ struct defaultKeys {
     static let cachedSurveyData = "cachedSurveyData"
 }
 
+struct Connectivity {
+	static let sharedInstance = NetworkReachabilityManager()!
+	static var isConnectedToInternet:Bool {
+		return self.sharedInstance.isReachable
+	}
+}
+
 class ApiManager {
     private var tokenManager = TokenManager()
     
@@ -42,6 +51,12 @@ class ApiManager {
 							   method: HTTPMethod,
 							   parameters: Parameters?,
 							   completion: @escaping (Result<T, APIError>) -> Void) {
+		
+		guard Connectivity.isConnectedToInternet else {
+			completion(.failure(.noNetwork))
+			return
+		}
+		
 		// Function to update Authorization header
 		func updateAuthorizationHeader(_ accessToken: String) -> HTTPHeaders {
 			return HTTPHeaders(["Authorization": "Bearer \(accessToken)"])
@@ -61,8 +76,10 @@ class ApiManager {
 						
 						if let statusCode = response.response?.statusCode, statusCode == 401 {
 							self.handleTokenExpiration(urlString: urlString, method: method, parameters: parameters, completion: completion)
+						} else if let statusCode = response.response?.statusCode, statusCode == 400 {
+							completion(.failure(.invalidGrant))
 						} else {
-							completion(.failure(.networkError))
+							completion(.failure(.parsingError))
 						}
 						
 				}

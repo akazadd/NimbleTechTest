@@ -3,14 +3,12 @@ PODS:
   - AMShimmer (1.0.6)
   - KeychainAccess (4.2.2)
   - Kingfisher (7.6.1)
-  - Reachability (3.2)
 
 DEPENDENCIES:
   - Alamofire
   - AMShimmer
   - KeychainAccess
   - Kingfisher (= 7.6.1)
-  - Reachability
 
 SPEC REPOS:
   trunk:
@@ -18,15 +16,13 @@ SPEC REPOS:
     - AMShimmer
     - KeychainAccess
     - Kingfisher
-    - Reachability
 
 SPEC CHECKSUMS:
   Alamofire: 3ca42e259043ee0dc5c0cdd76c4bc568b8e42af7
   AMShimmer: 681eeaaedf9fc4e390e95e9dd6fe59df947cfee0
   KeychainAccess: c0c4f7f38f6fc7bbe58f5702e25f7bd2f65abf51
   Kingfisher: 93a3c6d0d551658a31e19f21747e1d15cb39d525
-  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
 
-PODFILE CHECKSUM: 5045164919ed6340522698b9c61e95bee0792542
+PODFILE CHECKSUM: 2ef74e5e924c64b2d5e8bb06e53500b6aae7754a
 
 COCOAPODS: 1.13.0

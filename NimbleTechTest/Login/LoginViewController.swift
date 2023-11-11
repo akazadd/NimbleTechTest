@@ -46,7 +46,6 @@ class LoginViewController: UIViewController {
 			textfield?.delegate = self
         }
         loginButton.layer.cornerRadius = 12.0
-		loginButton.titleLabel?.letterSpacing = -0.41
 		
 		emailTextField.addCornerRadius(cornerRadius: 12.0)
 		emailTextField.font = UIFont(name: "NeuzeitSLTStd-Book", size: 17)?.withWeight(UIFont.Weight(rawValue: 400))

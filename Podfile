@@ -9,7 +9,6 @@ target 'NimbleTechTest' do
   pod 'AMShimmer'
   pod 'Kingfisher', '7.6.1'
 	pod 'Alamofire'
-	pod 'Reachability'
 
   # Pods for NimbleTechTest
 

@@ -165,9 +165,22 @@ class LoginViewModel {
 					DispatchQueue.main.async { [weak self] in
 						self?.onLoginSuccess?()
 					}
-				case .failure(_):
+				case .failure(let error):
+					var errorMessage = ""
+					switch error {
+						case .accessTokenExpired:
+							errorMessage = "Access token Expired"
+						case .networkError:
+							errorMessage = "Network error"
+						case .parsingError:
+							errorMessage = "Parsing error"
+						case .noNetwork:
+							errorMessage = "No internet connection"
+						case .invalidGrant:
+							errorMessage = "Your email or password is incorrect"
+					}
 					DispatchQueue.main.async { [weak self] in
-						self?.onLoginFailure?("Login failed, please try again!")
+						self?.onLoginFailure?(errorMessage + ", please try again!")
 					}
 			}
 		}
