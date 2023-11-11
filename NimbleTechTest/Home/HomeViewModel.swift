@@ -13,28 +13,37 @@ protocol HomeViewModelProtocol {
 }
 
 class HomeViewModel: HomeViewModelProtocol {
-    var responseData: [SurveyList]?
-    var apiManager = ApiManager()
-
-    func fetchServeyListFromAPI(pageNumber: Int, pageSize: Int, completion: @escaping () -> Void) {
-        let urlString = Constants.surveyUrl.rawValue + "?page[number]=\(pageNumber)&page[size]=\(pageSize)"
-        
+	var responseData: [SurveyList]?
+	var apiManager = ApiManager()
+	
+	func fetchServeyListFromAPI(pageNumber: Int, pageSize: Int, completion: @escaping () -> Void) {
+		let urlString = Constants.surveyUrl.rawValue + "?page[number]=\(pageNumber)&page[size]=\(pageSize)"
+		
 		apiManager.callApi(urlString: urlString, method: .get, parameters: nil) { [unowned self] (result: Result<SurveyListModel, APIError>) in
-            switch result {
-            case .success(let response):
-                self.responseData = response.surveyList
-                completion()
-            case .failure(let error):
-                print("API Error: \(error)")
-            }
-        }
-    }
-    
-    func surveyTitle(index: Int) -> String {
-        guard let responseData = responseData, let title = responseData[index].attributes?.title else {
-            return ""
-        }
-        
-        return title
-    }
+			switch result {
+				case .success(let response):
+					self.responseData = response.surveyList
+					self.cacheSurveyData()
+					completion()
+				case .failure(let error):
+					print("API Error: \(error)")
+			}
+		}
+	}
+	
+	func loadCachedSurveys() {
+		if let cachedSurveys = UserDefaults.standard.data(forKey: defaultKeys.cachedSurveyData) {
+			if let decodedSurveys = try? JSONDecoder().decode([SurveyList].self, from: cachedSurveys) {
+				self.responseData = decodedSurveys
+			}
+		}
+	}
+	
+	// Method to cache the fetched surveys
+	private func cacheSurveyData() {
+		if let surveysData = try? JSONEncoder().encode(responseData) {
+			UserDefaults.standard.set(surveysData, forKey: defaultKeys.cachedSurveyData)
+		}
+	}
+	
 }

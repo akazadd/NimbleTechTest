@@ -11,7 +11,7 @@ import Kingfisher
 
 class HomeViewController: UIViewController {
     
-    var viewModel: HomeViewModelProtocol!
+    var viewModel: HomeViewModel!
     var router: HomeRouter!
         
     private var scrollview = UIScrollView()
@@ -83,23 +83,13 @@ class HomeViewController: UIViewController {
         showLoadingAnimation()
         
         // Attempt to load cached data
-        if let cachedSurveys = UserDefaults.standard.data(forKey: defaultKeys.cachedSurveyData) {
-            if let decodedSurveys = try? JSONDecoder().decode([SurveyList].self, from: cachedSurveys) {
-                self.viewModel.responseData = decodedSurveys
-                self.updateUI()
-            }
-        }
+		viewModel.loadCachedSurveys()
         
         viewModel.fetchServeyListFromAPI(pageNumber: page, pageSize: size) { [weak self] in
             DispatchQueue.main.async {
                 // Hide loading animation
                 self?.hideLoadingAnimation()
                 self?.updateUI()
-                
-                // Cache the fetched data
-                if let surveysData = try? JSONEncoder().encode(self?.viewModel.responseData) {
-                    UserDefaults.standard.set(surveysData, forKey: defaultKeys.cachedSurveyData)
-                }
                 
                 // End the refresh control
                 self?.refreshControl.endRefreshing()

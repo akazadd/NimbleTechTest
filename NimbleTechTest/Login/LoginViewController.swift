@@ -60,16 +60,17 @@ class LoginViewController: UIViewController {
                 passwordTextField.forgotPasswordLabel.addGestureRecognizer(tapGesture)
         loginButton.addTarget(self, action: #selector(onLoginButtonTap), for: .touchUpInside)
     }
-    
-    @objc func onLoginButtonTap() {
-        self.view.endEditing(true)
-        loginButton.showLoading()
-		
-		viewModel.validateAndLogin(email: emailTextField.text, password: passwordTextField.text)
-    }
 }
 
+//MARK: Handle Tap
 extension LoginViewController {
+	@objc func onLoginButtonTap() {
+		self.view.endEditing(true)
+		loginButton.showLoading()
+		
+		viewModel.validateAndLogin(email: emailTextField.text, password: passwordTextField.text)
+	}
+	
     @objc private func forgotPasswordLabelTapped() {
         // Handle "Forgot Password" action
         self.router.perform(.forgotPassword, from: self)
