@@ -20,7 +20,7 @@
                 <outlet property="contentView" destination="ti0-yW-OmF" id="xVw-OH-5x7"/>
                 <outlet property="dateLabel" destination="phe-dX-OaQ" id="Chm-1s-TYr"/>
                 <outlet property="dayLabel" destination="vGG-gL-BoK" id="Lbf-13-dRU"/>
-                <outlet property="pageControl" destination="1gq-Lf-dGM" id="YKU-oB-6qx"/>
+                <outlet property="pageControl" destination="xCQ-ta-TW9" id="PLx-YS-P7s"/>
                 <outlet property="queryLabel" destination="0SL-AW-qVG" id="8qP-LR-8oW"/>
                 <outlet property="titleLabel" destination="vP7-ig-NiP" id="23a-qI-QFt"/>
                 <outlet property="userImgView" destination="zXT-8b-IuQ" id="q45-iz-IrD"/>
@@ -35,12 +35,6 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </imageView>
-                <pageControl opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="1gq-Lf-dGM">
-                    <rect key="frame" x="0.0" y="668" width="116.5" height="40"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="40" id="EmF-ph-96c"/>
-                    </constraints>
-                </pageControl>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Working from home Check-In" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vP7-ig-NiP">
                     <rect key="frame" x="33" y="716" width="273" height="56"/>
                     <fontDescription key="fontDescription" name="NeuzeitSLTStd-Book" family="Neuzeit S LT Std" pointSize="28"/>
@@ -99,6 +93,9 @@
                         <constraint firstItem="kLf-Mg-2xe" firstAttribute="centerY" secondItem="sxv-Ce-6oY" secondAttribute="centerY" id="O2d-Hf-gHW"/>
                     </constraints>
                 </view>
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="xCQ-ta-TW9">
+                    <rect key="frame" x="0.0" y="669" width="116.5" height="26"/>
+                </pageControl>
             </subviews>
             <viewLayoutGuide key="safeArea" id="yPL-rq-GdR"/>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -107,19 +104,19 @@
                 <constraint firstItem="vP7-ig-NiP" firstAttribute="leading" secondItem="yPL-rq-GdR" secondAttribute="leading" constant="33" id="4xt-EV-mWb"/>
                 <constraint firstItem="yPL-rq-GdR" firstAttribute="trailing" secondItem="sxv-Ce-6oY" secondAttribute="trailing" constant="20" id="6hm-83-zZk"/>
                 <constraint firstItem="SAU-9V-qCw" firstAttribute="bottom" secondItem="0SL-AW-qVG" secondAttribute="bottom" id="8jM-bW-20b"/>
-                <constraint firstItem="1gq-Lf-dGM" firstAttribute="top" secondItem="sxv-Ce-6oY" secondAttribute="bottom" priority="250" constant="517" id="BX0-Js-pBv"/>
                 <constraint firstItem="0SL-AW-qVG" firstAttribute="top" secondItem="vP7-ig-NiP" secondAttribute="bottom" constant="16" id="CiN-6g-OFX"/>
                 <constraint firstItem="eic-En-pKN" firstAttribute="bottom" secondItem="ti0-yW-OmF" secondAttribute="bottom" id="JW0-39-NOI"/>
                 <constraint firstItem="yPL-rq-GdR" firstAttribute="trailing" secondItem="SAU-9V-qCw" secondAttribute="trailing" constant="20" id="KAO-wD-f4a"/>
+                <constraint firstItem="xCQ-ta-TW9" firstAttribute="top" secondItem="sxv-Ce-6oY" secondAttribute="bottom" priority="250" constant="526" id="KCi-9u-kF2"/>
+                <constraint firstItem="vP7-ig-NiP" firstAttribute="top" secondItem="xCQ-ta-TW9" secondAttribute="bottom" constant="21" id="VzV-3C-D1t"/>
                 <constraint firstAttribute="trailing" secondItem="eic-En-pKN" secondAttribute="trailing" id="YcY-8k-2La"/>
                 <constraint firstItem="sxv-Ce-6oY" firstAttribute="leading" secondItem="yPL-rq-GdR" secondAttribute="leading" constant="20" id="ZC4-RQ-8bu"/>
-                <constraint firstItem="1gq-Lf-dGM" firstAttribute="leading" secondItem="yPL-rq-GdR" secondAttribute="leading" id="dnq-xb-8kI"/>
                 <constraint firstAttribute="top" secondItem="eic-En-pKN" secondAttribute="top" id="e2F-Fq-xjt"/>
                 <constraint firstItem="SAU-9V-qCw" firstAttribute="leading" secondItem="0SL-AW-qVG" secondAttribute="trailing" constant="32" id="fzG-qk-MkI"/>
                 <constraint firstItem="yPL-rq-GdR" firstAttribute="bottom" secondItem="0SL-AW-qVG" secondAttribute="bottom" constant="40" id="kCf-w7-y4B"/>
+                <constraint firstItem="xCQ-ta-TW9" firstAttribute="leading" secondItem="yPL-rq-GdR" secondAttribute="leading" id="qrY-Vd-uVl"/>
                 <constraint firstItem="eic-En-pKN" firstAttribute="leading" secondItem="ti0-yW-OmF" secondAttribute="leading" id="rz1-qt-cTM"/>
                 <constraint firstItem="vP7-ig-NiP" firstAttribute="trailing" secondItem="0SL-AW-qVG" secondAttribute="trailing" id="tjE-pO-him"/>
-                <constraint firstItem="vP7-ig-NiP" firstAttribute="top" secondItem="1gq-Lf-dGM" secondAttribute="bottom" constant="8" symbolic="YES" id="vxJ-iu-83o"/>
                 <constraint firstItem="0SL-AW-qVG" firstAttribute="leading" secondItem="yPL-rq-GdR" secondAttribute="leading" constant="33" id="zu9-34-EsF"/>
             </constraints>
             <point key="canvasLocation" x="1049" y="110"/>

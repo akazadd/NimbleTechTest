@@ -8,15 +8,16 @@
 import Foundation
 
 protocol HomeViewModelProtocol {
-    var responseData: [SurveyList]? { get set }
+    var responseData: [Survey]? { get set }
     func fetchServeyListFromAPI(completion: @escaping () -> Void)
 }
 
 class HomeViewModel: HomeViewModelProtocol {
-	var responseData: [SurveyList]?
+	var responseData: [Survey]?
 	var apiManager = ApiManager()
 	var pageNumber = 1
 	private var pageSize = 5
+	var currentPage: Int = 0
 	
 	func fetchServeyListFromAPI(completion: @escaping () -> Void) {
 		let urlString = Constants.surveyUrl.rawValue + "?page[number]=\(pageNumber)&page[size]=\(pageSize)"
@@ -44,8 +45,8 @@ class HomeViewModel: HomeViewModelProtocol {
 	
 	func loadCachedSurveys() {
 		if let cachedSurveys = UserDefaults.standard.data(forKey: defaultKeys.cachedSurveyData) {
-			if let decodedSurveys = try? JSONDecoder().decode([SurveyList].self, from: cachedSurveys) {
-				self.responseData = decodedSurveys
+			if let decodedSurveys = try? JSONDecoder().decode([Survey].self, from: cachedSurveys) {
+//				self.responseData = decodedSurveys
 			}
 		}
 	}
