@@ -8,32 +8,51 @@
 import Foundation
 
 protocol HomeViewModelProtocol {
-    var responseData: [SurveyList]? { get set }
-    func fetchServeyListFromAPI(pageNumber: Int, pageSize: Int, completion: @escaping () -> Void)
+    var responseData: [Survey]? { get set }
+    func fetchServeyListFromAPI(completion: @escaping () -> Void)
 }
 
-class HomeViewModel: HomeViewModelProtocol {
-	var responseData: [SurveyList]?
+protocol HomeViewModelDelegate: AnyObject {
+	func surveysFetched()
+}
+
+class HomeViewModel {
+	var responseData: [Survey] = []
 	var apiManager = ApiManager()
+	private var pageNumber = 1
+	private var pageSize = 5
+	private var totalPages = 1
 	
-	func fetchServeyListFromAPI(pageNumber: Int, pageSize: Int, completion: @escaping () -> Void) {
+	weak var delegate: HomeViewModelDelegate?
+	
+	func fetchSurveys() {
 		let urlString = Constants.surveyUrl.rawValue + "?page[number]=\(pageNumber)&page[size]=\(pageSize)"
 		
-		apiManager.callApi(urlString: urlString, method: .get, parameters: nil) { [unowned self] (result: Result<SurveyListModel, APIError>) in
+		apiManager.callApi(urlString: urlString, method: .get, parameters: nil) { [weak self] (result: Result<SurveyListModel, APIError>) in
 			switch result {
 				case .success(let response):
-					self.responseData = response.surveyList
-					self.cacheSurveyData()
-					completion()
+					self?.totalPages = response.meta?.pages ?? 0
+					if let newList = response.surveyList {
+						if self?.pageNumber == 1 {
+							self?.responseData = newList
+						} else {
+							self?.responseData.append(contentsOf: newList)
+						}
+					}
+					
+					self?.cacheSurveyData()
+					self?.delegate?.surveysFetched()
+					
 				case .failure(let error):
 					print("API Error: \(error)")
+					self?.delegate?.surveysFetched()
 			}
 		}
 	}
-	
-	func loadCachedSurveys() {
+
+	private func loadCachedSurveys() {
 		if let cachedSurveys = UserDefaults.standard.data(forKey: defaultKeys.cachedSurveyData) {
-			if let decodedSurveys = try? JSONDecoder().decode([SurveyList].self, from: cachedSurveys) {
+			if let decodedSurveys = try? JSONDecoder().decode([Survey].self, from: cachedSurveys) {
 				self.responseData = decodedSurveys
 			}
 		}
@@ -46,4 +65,31 @@ class HomeViewModel: HomeViewModelProtocol {
 		}
 	}
 	
+	func incrementPageNumber() {
+		pageNumber += 1
+	}
+	
+	func numberOfItemsInSection() -> Int {
+		return responseData.count
+	}
+	
+	func surveyAt(index: Int) -> SurveyAttributes? {
+		return responseData[index].attributes
+	}
+	
+	func totalItemCount() -> Int {
+		return responseData.count
+	}
+	
+	func setPageNumberForHandleRefresh() {
+		pageNumber = 1
+	}
+	
+	func shouldPaginationBeCalled() -> Bool {
+		if pageNumber <= totalPages {
+			return true
+		} else {
+			return false
+		}
+	}
 }

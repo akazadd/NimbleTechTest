@@ -8,7 +8,7 @@
 import Foundation
 
 struct SurveyListModel : Codable {
-    let surveyList : [SurveyList]?
+    let surveyList : [Survey]?
     let meta : Meta?
 
     enum CodingKeys: String, CodingKey {
@@ -18,15 +18,15 @@ struct SurveyListModel : Codable {
 
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        surveyList = try values.decodeIfPresent([SurveyList].self, forKey: .surveyList)
+        surveyList = try values.decodeIfPresent([Survey].self, forKey: .surveyList)
         meta = try values.decodeIfPresent(Meta.self, forKey: .meta)
     }
 
 }
 
-struct SurveyList : Codable {
+struct Survey : Codable {
     let id, type : String?
-    let attributes : SurveyListAttributes?
+    let attributes : SurveyAttributes?
     let relationships : Relationships?
 
     enum CodingKeys: String, CodingKey {
@@ -40,12 +40,12 @@ struct SurveyList : Codable {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         id = try values.decodeIfPresent(String.self, forKey: .id)
         type = try values.decodeIfPresent(String.self, forKey: .type)
-        attributes = try values.decodeIfPresent(SurveyListAttributes.self, forKey: .attributes)
+        attributes = try values.decodeIfPresent(SurveyAttributes.self, forKey: .attributes)
         relationships = try values.decodeIfPresent(Relationships.self, forKey: .relationships)
     }
 }
 
-struct SurveyListAttributes : Codable {
+struct SurveyAttributes : Codable {
     let title, description : String?
     let thank_email_above_threshold, thank_email_below_threshold : String?
     let is_active : Bool?

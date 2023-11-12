@@ -11,6 +11,9 @@
 		1D8D2E4503FDF878CF38978D /* Pods_NimbleTechTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9BDC0869D382D5EB8E448F8 /* Pods_NimbleTechTestTests.framework */; };
 		6EE2C0D96233243D61A45910 /* Pods_NimbleTechTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACD53EE4CF4A65AB84810251 /* Pods_NimbleTechTest.framework */; };
 		A2903F9B2AFF338F00749443 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2903F9A2AFF338F00749443 /* TokenManager.swift */; };
+		A2903FAA2B00B02E00749443 /* SurveyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2903FA82B00B02E00749443 /* SurveyCollectionViewCell.swift */; };
+		A2903FAB2B00B02E00749443 /* SurveyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2903FA92B00B02E00749443 /* SurveyCollectionViewCell.xib */; };
+		A2903FAD2B00DF1A00749443 /* CustomPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2903FAC2B00DF1A00749443 /* CustomPageControl.swift */; };
 		CB1530372AF2D92C0051FCA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1530362AF2D92C0051FCA5 /* AppDelegate.swift */; };
 		CB1530392AF2D92C0051FCA5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1530382AF2D92C0051FCA5 /* SceneDelegate.swift */; };
 		CB15303B2AF2D92C0051FCA5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB15303A2AF2D92C0051FCA5 /* LoginViewController.swift */; };
@@ -42,8 +45,6 @@
 		CBAE47D92AF556AA00AC4665 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE47D82AF556AA00AC4665 /* Extensions.swift */; };
 		CBAE47DB2AF57FEE00AC4665 /* Launcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE47DA2AF57FEE00AC4665 /* Launcher.swift */; };
 		CBAE47DD2AF5804300AC4665 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBAE47DC2AF5804300AC4665 /* LoginRouter.swift */; };
-		CBC72AC32AF6D664002EDF43 /* SurveyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC72AC22AF6D664002EDF43 /* SurveyView.swift */; };
-		CBC72AC52AF6D73E002EDF43 /* SurveyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBC72AC42AF6D73E002EDF43 /* SurveyView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,9 @@
 		74D76ED487EA1CD06443D28E /* Pods-NimbleTechTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NimbleTechTestTests.release.xcconfig"; path = "Target Support Files/Pods-NimbleTechTestTests/Pods-NimbleTechTestTests.release.xcconfig"; sourceTree = "<group>"; };
 		98A6F53B8422A322039866F9 /* Pods-NimbleTechTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NimbleTechTest.release.xcconfig"; path = "Target Support Files/Pods-NimbleTechTest/Pods-NimbleTechTest.release.xcconfig"; sourceTree = "<group>"; };
 		A2903F9A2AFF338F00749443 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
+		A2903FA82B00B02E00749443 /* SurveyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyCollectionViewCell.swift; sourceTree = "<group>"; };
+		A2903FA92B00B02E00749443 /* SurveyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SurveyCollectionViewCell.xib; sourceTree = "<group>"; };
+		A2903FAC2B00DF1A00749443 /* CustomPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageControl.swift; sourceTree = "<group>"; };
 		ACD53EE4CF4A65AB84810251 /* Pods_NimbleTechTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NimbleTechTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C645D82DAFF087C4D68943B0 /* Pods-NimbleTechTest-NimbleTechTestUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NimbleTechTest-NimbleTechTestUITests.debug.xcconfig"; path = "Target Support Files/Pods-NimbleTechTest-NimbleTechTestUITests/Pods-NimbleTechTest-NimbleTechTestUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CB1530332AF2D92C0051FCA5 /* NimbleTechTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NimbleTechTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,8 +112,6 @@
 		CBAE47D82AF556AA00AC4665 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		CBAE47DA2AF57FEE00AC4665 /* Launcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Launcher.swift; sourceTree = "<group>"; };
 		CBAE47DC2AF5804300AC4665 /* LoginRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
-		CBC72AC22AF6D664002EDF43 /* SurveyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyView.swift; sourceTree = "<group>"; };
-		CBC72AC42AF6D73E002EDF43 /* SurveyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SurveyView.xib; sourceTree = "<group>"; };
 		D9BDC0869D382D5EB8E448F8 /* Pods_NimbleTechTestTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NimbleTechTestTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -269,8 +271,8 @@
 				CBAE47D22AF5500200AC4665 /* HomeViewModel.swift */,
 				CB3941F92AF7F55C00B9D287 /* HomeRouter.swift */,
 				CBAE47D42AF5521400AC4665 /* SurveyListModel.swift */,
-				CBC72AC22AF6D664002EDF43 /* SurveyView.swift */,
-				CBC72AC42AF6D73E002EDF43 /* SurveyView.xib */,
+				A2903FA82B00B02E00749443 /* SurveyCollectionViewCell.swift */,
+				A2903FA92B00B02E00749443 /* SurveyCollectionViewCell.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -284,6 +286,7 @@
 				CB87D9312AF66126001CA7F7 /* LoadingButton.swift */,
 				CB3942052AF840B800B9D287 /* PasswordTextField.swift */,
 				A2903F9A2AFF338F00749443 /* TokenManager.swift */,
+				A2903FAC2B00DF1A00749443 /* CustomPageControl.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -407,7 +410,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CBC72AC52AF6D73E002EDF43 /* SurveyView.xib in Resources */,
+				A2903FAB2B00B02E00749443 /* SurveyCollectionViewCell.xib in Resources */,
 				CB1530432AF2D92E0051FCA5 /* LaunchScreen.storyboard in Resources */,
 				CB1530402AF2D92E0051FCA5 /* Assets.xcassets in Resources */,
 				CB15303E2AF2D92C0051FCA5 /* Main.storyboard in Resources */,
@@ -539,15 +542,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CBC72AC32AF6D664002EDF43 /* SurveyView.swift in Sources */,
 				CB87D9322AF66126001CA7F7 /* LoadingButton.swift in Sources */,
 				CB1530692AF3E1EB0051FCA5 /* ApiManager.swift in Sources */,
 				CB15306D2AF42ABE0051FCA5 /* LoginViewModel.swift in Sources */,
 				CB3941FA2AF7F55C00B9D287 /* HomeRouter.swift in Sources */,
 				CB15303B2AF2D92C0051FCA5 /* LoginViewController.swift in Sources */,
+				A2903FAA2B00B02E00749443 /* SurveyCollectionViewCell.swift in Sources */,
 				CB3942022AF838ED00B9D287 /* ForgotPasswordViewModel.swift in Sources */,
 				CBAE47D32AF5500200AC4665 /* HomeViewModel.swift in Sources */,
 				CB15306B2AF428440051FCA5 /* TokenResponseModel.swift in Sources */,
+				A2903FAD2B00DF1A00749443 /* CustomPageControl.swift in Sources */,
 				CB1530372AF2D92C0051FCA5 /* AppDelegate.swift in Sources */,
 				CB3942062AF840B800B9D287 /* PasswordTextField.swift in Sources */,
 				A2903F9B2AFF338F00749443 /* TokenManager.swift in Sources */,

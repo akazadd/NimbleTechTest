@@ -14,7 +14,7 @@ class SurveyDetailsViewController: UIViewController {
     @IBOutlet weak var queryLbl: UILabel!
     @IBOutlet weak var startServeyBtn: UIButton!
     
-    var surveyInfo: SurveyListAttributes?
+    var surveyInfo: SurveyAttributes?
     
     static func instantiate() -> SurveyDetailsViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)

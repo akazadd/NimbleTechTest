@@ -14,8 +14,8 @@ class HomeViewController: UIViewController {
     var viewModel: HomeViewModel!
     var router: HomeRouter!
         
-    private var scrollview = UIScrollView()
-    
+	@IBOutlet weak var collectionView: UICollectionView!
+	    
     static func instantiate() -> HomeViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: String(describing: self)) as! HomeViewController
@@ -27,90 +27,50 @@ class HomeViewController: UIViewController {
         refreshControl.addTarget(self, action: #selector(handleRefresh(_:)), for: .valueChanged)
         return refreshControl
     }()
-    
+	    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Add scrollview as a subview to view
-        view.addSubview(scrollview)
-        
-        // Add refresh control to the view
-        scrollview.refreshControl = refreshControl
         
         // Fetch data when the view loads
-        fetchData(page: 1, size: 5)
+        fetchData()
+		setupViewModel()
+		setupCollectionView()
     }
+	
+	func setupCollectionView() {
+		collectionView.delegate = self
+		collectionView.dataSource = self
+		collectionView.register(UINib(nibName: "SurveyCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "SurveyCollectionViewCell")
+		
+		let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+		layout.sectionInset = UIEdgeInsets(top:0, left: 0, bottom: 60, right: 0)
+		layout.itemSize = CGSize(width: view.bounds.size.width, height: view.bounds.size.height)
+		layout.minimumInteritemSpacing = 0
+		layout.minimumLineSpacing = 0
+		layout.scrollDirection = .horizontal
+		collectionView!.collectionViewLayout = layout
+	}
+	
+	func setupViewModel() {
+		viewModel.delegate = self
+	}
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        scrollview.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height)
-        scrollview.showsHorizontalScrollIndicator = false
-        scrollview.automaticallyAdjustsScrollIndicatorInsets = false
-        scrollview.contentInset = .zero
-        scrollview.scrollIndicatorInsets = .zero
-        scrollview.contentOffset = CGPoint(x: 0.0, y: 0.0)
-        scrollview.contentInsetAdjustmentBehavior = .never
-    }
-    
-    func configureScrollView(pages: Int) {
-        scrollview.contentSize = CGSize(width: view.frame.size.width*5, height: view.frame.size.height)
-        scrollview.isPagingEnabled = true
-        
-        for page in 0..<pages {
-            let surveyView = SurveyView(frame: CGRect(x: CGFloat(page) * view.frame.size.width, y: 0, width: view.frame.size.width, height: view.frame.size.height))
-            
-            let survey = viewModel.responseData?[page].attributes
-			surveyView.dateLabel.text = survey?.created_at?.formattedDateString()?.uppercased()
-            surveyView.dayLabel.text = survey?.created_at?.formattedDayString()
-            surveyView.titleLabel.text = survey?.title
-            surveyView.queryLabel.text = survey?.description
-			let imageUrl = survey?.cover_image_url
-			let highResulutionImageUrl = (imageUrl ?? "") + "l"
-            surveyView.backgroundImgView.kf.setImage(with: URL(string: highResulutionImageUrl))
-            surveyView.pageControl.numberOfPages = pages
-            surveyView.pageControl.currentPage = page
-            surveyView.actionButton.tag = page
-            
-            surveyView.actionButton.addTarget(self, action: #selector(actionButtonTapped(_:)), for: .touchUpInside)
-                        
-            scrollview.addSubview(surveyView)
-        }
-    }
-    
-    func fetchData(page: Int, size: Int) {
+    func fetchData() {
         // Show loading animation
         showLoadingAnimation()
-        
-        // Attempt to load cached data
-		viewModel.loadCachedSurveys()
-        
-        viewModel.fetchServeyListFromAPI(pageNumber: page, pageSize: size) { [weak self] in
-            DispatchQueue.main.async {
-                // Hide loading animation
-                self?.hideLoadingAnimation()
-                self?.updateUI()
-                
-                // End the refresh control
-                self?.refreshControl.endRefreshing()
-            }
-        }
-    }
-    
-    private func updateUI() {
-        configureScrollView(pages: viewModel.responseData?.count ?? 0)
+		viewModel.fetchSurveys()
     }
     
     @objc func actionButtonTapped(_ sender: UIButton) {
         // Retrieve the index of the tapped survey view from the button's tag
-        self.router.perform(.surveyDetails, from: self, attributes: viewModel.responseData?[sender.tag].attributes)
+        self.router.perform(.surveyDetails, from: self, attributes: viewModel.responseData[sender.tag].attributes)
     }
     
     @objc private func handleRefresh(_ sender: Any) {
         // Fetch new data from the API
-        fetchData(page: 1, size: 5)
+		viewModel.setPageNumberForHandleRefresh()
+        fetchData()
     }
-
 }
 
 //MARK: Loader
@@ -131,4 +91,69 @@ extension HomeViewController {
             loadingIndicator.removeFromSuperview()
         }
     }
+}
+
+extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+		return viewModel.numberOfItemsInSection()
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+		
+		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SurveyCollectionViewCell", for: indexPath) as? SurveyCollectionViewCell else {
+			return UICollectionViewCell()
+		}
+		
+		guard let survey = viewModel.surveyAt(index: indexPath.row) else {
+			return cell
+		}
+				
+		cell.dateLabel.text = survey.created_at?.formattedDateString()?.uppercased()
+		cell.dayLabel.text = survey.created_at?.formattedDayString()
+		cell.titleLabel.text = survey.title
+		cell.queryLabel.text = survey.description
+		let imageUrl = survey.cover_image_url
+		let highResulutionImageUrl = (imageUrl ?? "") + "l"
+		cell.backgroundImgView.kf.setImage(with: URL(string: highResulutionImageUrl))
+		cell.pageControl.numberOfPages = viewModel.responseData.count
+		cell.pageControl.currentPage = indexPath.row
+		
+		cell.actionButton.tag = indexPath.row
+		cell.actionButton.addTarget(self, action: #selector(actionButtonTapped(_:)), for: .touchUpInside)
+		
+		cell.pageControl.delegate = self
+		
+		return cell
+	}
+	
+	func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+		let lastItem = viewModel.totalItemCount() - 1
+		if indexPath.row == lastItem {
+			viewModel.incrementPageNumber()
+			if viewModel.shouldPaginationBeCalled() {
+				fetchData()
+			}
+		}
+	}
+	
+}
+
+extension HomeViewController: CustomPageControlDelegate {
+	func customPageControl(_ pageControl: UIPageControl, didTapIndicatorAtIndex index: Int) {
+		scrollToIndex(index: index)
+	}
+	
+	func scrollToIndex(index: Int) {
+		let indexPath = IndexPath(item: index, section: 0)
+		collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+	}
+	
+}
+
+extension HomeViewController: HomeViewModelDelegate {
+	func surveysFetched() {
+		hideLoadingAnimation()
+		collectionView.reloadData()
+		refreshControl.endRefreshing()
+	}
 }
