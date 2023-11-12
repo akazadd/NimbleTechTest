@@ -6,8 +6,8 @@
 //
 
 import UIKit
-import AMShimmer
 import Kingfisher
+import SkeletonView
 
 class HomeViewController: UIViewController {
     
@@ -37,6 +37,15 @@ class HomeViewController: UIViewController {
 		setupCollectionView()
     }
 	
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		
+		SkeletonAppearance.default.multilineLastLineFillPercent = Int.random(in: 20...70)
+		SkeletonAppearance.default.multilineCornerRadius = 8
+		collectionView.isSkeletonable = true
+		collectionView.showAnimatedGradientSkeleton(usingGradient: SkeletonGradient(baseColor: .darkClouds), transition: .crossDissolve(0.2))
+	}
+	
 	func setupCollectionView() {
 		collectionView.delegate = self
 		collectionView.dataSource = self
@@ -56,8 +65,6 @@ class HomeViewController: UIViewController {
 	}
     
     func fetchData() {
-        // Show loading animation
-        showLoadingAnimation()
 		viewModel.fetchSurveys()
     }
     
@@ -70,26 +77,6 @@ class HomeViewController: UIViewController {
         // Fetch new data from the API
 		viewModel.setPageNumberForHandleRefresh()
         fetchData()
-    }
-}
-
-//MARK: Loader
-extension HomeViewController {
-    func showLoadingAnimation() {
-        // Create and configure a UIActivityIndicatorView or a custom loading view
-        let loadingIndicator = UIActivityIndicatorView(style: .large)
-        loadingIndicator.center = view.center
-        loadingIndicator.startAnimating()
-        loadingIndicator.tag = 123 // Assign a unique tag to the loading view
-        view.addSubview(loadingIndicator)
-    }
-
-    func hideLoadingAnimation() {
-        // Find and remove the loading view based on its tag
-        if let loadingIndicator = view.viewWithTag(123) as? UIActivityIndicatorView {
-            loadingIndicator.stopAnimating()
-            loadingIndicator.removeFromSuperview()
-        }
     }
 }
 
@@ -117,6 +104,7 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
 		cell.backgroundImgView.kf.setImage(with: URL(string: highResulutionImageUrl))
 		cell.pageControl.numberOfPages = viewModel.responseData.count
 		cell.pageControl.currentPage = indexPath.row
+		cell.pageControl.isHidden = false
 		
 		cell.actionButton.tag = indexPath.row
 		cell.actionButton.addTarget(self, action: #selector(actionButtonTapped(_:)), for: .touchUpInside)
@@ -152,8 +140,14 @@ extension HomeViewController: CustomPageControlDelegate {
 
 extension HomeViewController: HomeViewModelDelegate {
 	func surveysFetched() {
-		hideLoadingAnimation()
-		collectionView.reloadData()
-		refreshControl.endRefreshing()
+		self.collectionView.hideSkeleton()
+		self.collectionView.reloadData()
+		self.refreshControl.endRefreshing()
+	}
+}
+
+extension HomeViewController: SkeletonCollectionViewDataSource {
+	func collectionSkeletonView(_ skeletonView: UICollectionView, cellIdentifierForItemAt indexPath: IndexPath) -> SkeletonView.ReusableCellIdentifier {
+		return "SurveyCollectionViewCell"
 	}
 }
