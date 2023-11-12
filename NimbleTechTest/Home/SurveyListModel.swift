@@ -21,10 +21,16 @@ struct SurveyListModel : Codable {
         surveyList = try values.decodeIfPresent([Survey].self, forKey: .surveyList)
         meta = try values.decodeIfPresent(Meta.self, forKey: .meta)
     }
+	
+	// Fix the issue by providing a default initializer
+	init(surveyList: [Survey], meta: Meta? = nil) {
+		self.surveyList = surveyList
+		self.meta = meta
+	}
 
 }
 
-struct Survey : Codable {
+struct Survey : Codable, Equatable {
     let id, type : String?
     let attributes : SurveyAttributes?
     let relationships : Relationships?
@@ -43,6 +49,18 @@ struct Survey : Codable {
         attributes = try values.decodeIfPresent(SurveyAttributes.self, forKey: .attributes)
         relationships = try values.decodeIfPresent(Relationships.self, forKey: .relationships)
     }
+	
+	static func == (lhs: Survey, rhs: Survey) -> Bool {
+		lhs.id == rhs.id
+	}
+	
+	init(id: String, type: String, attributes: SurveyAttributes?, relationships : Relationships?) {
+		self.id = id
+		self.type = type
+		self.attributes = attributes
+		self.relationships = relationships
+	}
+	
 }
 
 struct SurveyAttributes : Codable {
