@@ -19,9 +19,9 @@ protocol HomeViewModelDelegate: AnyObject {
 class HomeViewModel {
 	var responseData: [Survey] = []
 	var apiManager = ApiManager()
-	private var pageNumber = 1
+	var pageNumber = 1
 	private var pageSize = 5
-	private var totalPages = 1
+	var totalPages = 1
 	
 	weak var delegate: HomeViewModelDelegate?
 	
@@ -50,7 +50,7 @@ class HomeViewModel {
 		}
 	}
 
-	private func loadCachedSurveys() {
+	func loadCachedSurveys() {
 		if let cachedSurveys = UserDefaults.standard.data(forKey: defaultKeys.cachedSurveyData) {
 			if let decodedSurveys = try? JSONDecoder().decode([Survey].self, from: cachedSurveys) {
 				self.responseData = decodedSurveys

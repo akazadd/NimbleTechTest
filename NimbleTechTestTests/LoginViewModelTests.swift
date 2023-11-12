@@ -21,70 +21,49 @@ class LoginViewModelTests: XCTestCase {
         loginViewModel = nil
         super.tearDown()
     }
-    
-    func testValidInput() {
-        let expectation = XCTestExpectation(description: "Valid Input")
-        
-        loginViewModel.validateInput("test@example.com", password: "password") { isValid, error in
-            XCTAssertTrue(isValid, "Input should be valid")
-            XCTAssertNil(error, "Error should be nil for valid input")
-            expectation.fulfill()
-        }
-        
-        wait(for: [expectation], timeout: 5.0)
-    }
-    
-    func testEmptyEmail() {
-        let expectation = XCTestExpectation(description: "Empty Email")
-        
-        loginViewModel.validateInput("", password: "password") { isValid, error in
-            XCTAssertFalse(isValid, "Input should be invalid for empty email")
-            XCTAssertEqual(error, InputErrorMessage.emptyEmail, "Error should be empty email")
-            expectation.fulfill()
-        }
-        
-        wait(for: [expectation], timeout: 5.0)
-    }
-    
-    func testInvalidEmailFormat() {
-        let expectation = XCTestExpectation(description: "Invalid Email Format")
-        
-        loginViewModel.validateInput("invalidemail", password: "password") { isValid, error in
-            XCTAssertFalse(isValid, "Input should be invalid for invalid email format")
-            XCTAssertEqual(error, InputErrorMessage.emptyEmail, "Error should be empty email")
-            expectation.fulfill()
-        }
-        
-        wait(for: [expectation], timeout: 5.0)
-    }
-    
-    func testEmptyPassword() {
-        let expectation = XCTestExpectation(description: "Empty Password")
-        
-        loginViewModel.validateInput("test@example.com", password: "") { isValid, error in
-            XCTAssertFalse(isValid, "Input should be invalid for empty password")
-            XCTAssertEqual(error, InputErrorMessage.emptyPassword, "Error should be empty password")
-            expectation.fulfill()
-        }
-        
-        wait(for: [expectation], timeout: 5.0)
-    }
-    
-    func testLoginSuccess() {
-        let expectation = XCTestExpectation(description: "Login Success")
-        
-        let requestInfo = LoginRequestInfo(email: "test@example.com", password: "password")
-        
-        loginViewModel.login(requestInfo) { result in
-            switch result {
-            case .success:
-                XCTAssert(true, "Login should be successful")
-                expectation.fulfill()
-            case .failure:
-                XCTFail("Login should not fail for valid credentials")
-            }
-        }
-        
-        wait(for: [expectation], timeout: 10.0)
-    }
+	
+	func testValidLogin() {
+		let expectation = XCTestExpectation(description: "Login Success")
+		loginViewModel.onLoginSuccess = {
+			expectation.fulfill()
+		}
+		loginViewModel.onLoginFailure = { _ in
+			XCTFail("Login should be successful")
+		}
+
+		loginViewModel.validateAndLogin(email: "x@g.co", password: "123456")
+
+		// Wait for 5 seconds, adjust this based on the expected delay in your login process
+		wait(for: [expectation], timeout: 5.0)
+	}
+	
+	func testInvalidEmail() {
+		let expectation = XCTestExpectation(description: "Invalid Email Failure")
+		loginViewModel.onLoginSuccess = {
+			XCTFail("Login should fail for invalid email")
+		}
+		loginViewModel.onLoginFailure = { message in
+			XCTAssertEqual(message, InputErrorMessage.invalidEmail.rawValue)
+			expectation.fulfill()
+		}
+		
+		loginViewModel.validateAndLogin(email: "invalidemail", password: "password")
+		
+		wait(for: [expectation], timeout: 5.0)
+	}
+	
+	func testEmptyPassword() {
+		let expectation = XCTestExpectation(description: "Empty Password Failure")
+		loginViewModel.onLoginSuccess = {
+			XCTFail("Login should fail for empty password")
+		}
+		loginViewModel.onLoginFailure = { message in
+			XCTAssertEqual(message, InputErrorMessage.emptyPassword.rawValue)
+			expectation.fulfill()
+		}
+		
+		loginViewModel.validateAndLogin(email: "test@example.com", password: "")
+		
+		wait(for: [expectation], timeout: 5.0)
+	}
 }

@@ -47,6 +47,7 @@ struct Connectivity {
 
 class ApiManager {
 	var tokenManager = TokenManager()
+	var networkLayer: NetworkLayer = AlamofireNetworkLayer()
 	
 	func callApi<T: Decodable>(urlString: String,
 							   method: HTTPMethod,
@@ -63,38 +64,36 @@ class ApiManager {
 			return HTTPHeaders(["Authorization": "Bearer \(accessToken)"])
 		}
 		
-		
-		AF.request(urlString,
-				   method: method,
-				   parameters: parameters,
-				   encoding: JSONEncoding.default,
-				   headers: updateAuthorizationHeader(tokenManager.getAccessToken()))
-		.validate()
-		.responseDecodable(of: T.self) { [weak self] response in
+		networkLayer.request(urlString, method: method, parameters: parameters, headers: updateAuthorizationHeader(tokenManager.getAccessToken())) { [weak self] (result: Result<T, APIError>) in
 			guard let self = self else { return }
 			
-			switch response.result {
+			switch result {
 				case .success(let decodedObject):
 					completion(.success(decodedObject))
 					
 				case .failure(let error):
 					print("error: \(error)")
 					
-					if let statusCode = response.response?.statusCode, statusCode == 401 {
-						self.handleTokenExpiration(urlString: urlString, method: method, parameters: parameters, completion: completion)
-					} else if let statusCode = response.response?.statusCode, statusCode == 400 {
-						completion(.failure(.invalidGrant))
-					} else if let statusCode = response.response?.statusCode, statusCode == 404 {
-						completion(.failure(.notFound))
+					if let statusCode = self.networkLayer.lastStatusCode {
+						switch statusCode {
+							case 401:
+								self.handleTokenExpiration(urlString: urlString, method: method, parameters: parameters, completion: completion)
+							case 400:
+								completion(.failure(.invalidGrant))
+							case 404:
+								completion(.failure(.notFound))
+							default:
+								completion(.failure(.parsingError))
+						}
 					} else {
 						completion(.failure(.parsingError))
 					}
-					
 			}
 		}
 	}
 	
 	private func handleTokenExpiration<T: Decodable>(urlString: String, method: HTTPMethod,parameters: Parameters?,completion: @escaping (Result<T, APIError>) -> Void) {
+		
 		guard !tokenManager.isRefreshingToken else {
 			completion(.failure(.accessTokenExpired))
 			return
@@ -102,7 +101,9 @@ class ApiManager {
 		
 		tokenManager.isRefreshingToken = true
 		
-		tokenManager.refreshAccessToken { result in
+		tokenManager.refreshAccessToken { [weak self] result in
+			guard let self = self else { return }
+			
 			self.tokenManager.isRefreshingToken = false
 			
 			switch result {
