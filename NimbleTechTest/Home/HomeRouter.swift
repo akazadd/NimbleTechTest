@@ -12,12 +12,12 @@ enum HomeSegue {
 }
 
 protocol HomeRouter {
-	func perform(_ segue: HomeSegue, from source: HomeViewController, attributes : SurveyListAttributes?)
+	func perform(_ segue: HomeSegue, from source: HomeViewController, attributes : SurveyAttributes?)
 }
 
 
 class DefaultHomeRouter: HomeRouter {
-    func perform(_ segue: HomeSegue, from source: HomeViewController, attributes : SurveyListAttributes?) {
+    func perform(_ segue: HomeSegue, from source: HomeViewController, attributes : SurveyAttributes?) {
         switch segue {
         case .surveyDetails:
             let vc = DefaultHomeRouter.makeSurveyDetailsViewController(with: attributes)
@@ -32,7 +32,7 @@ class DefaultHomeRouter: HomeRouter {
 
 private extension DefaultHomeRouter {
 	
-    static func makeSurveyDetailsViewController(with surveyAttributes: SurveyListAttributes?) -> UIViewController {
+    static func makeSurveyDetailsViewController(with surveyAttributes: SurveyAttributes?) -> UIViewController {
 		let vc = SurveyDetailsViewController.instantiate()
         vc.surveyInfo = surveyAttributes
 		return vc

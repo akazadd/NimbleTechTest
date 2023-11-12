@@ -26,7 +26,7 @@ struct SurveyListModel : Codable {
 
 struct Survey : Codable {
     let id, type : String?
-    let attributes : SurveyListAttributes?
+    let attributes : SurveyAttributes?
     let relationships : Relationships?
 
     enum CodingKeys: String, CodingKey {
@@ -40,12 +40,12 @@ struct Survey : Codable {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         id = try values.decodeIfPresent(String.self, forKey: .id)
         type = try values.decodeIfPresent(String.self, forKey: .type)
-        attributes = try values.decodeIfPresent(SurveyListAttributes.self, forKey: .attributes)
+        attributes = try values.decodeIfPresent(SurveyAttributes.self, forKey: .attributes)
         relationships = try values.decodeIfPresent(Relationships.self, forKey: .relationships)
     }
 }
 
-struct SurveyListAttributes : Codable {
+struct SurveyAttributes : Codable {
     let title, description : String?
     let thank_email_above_threshold, thank_email_below_threshold : String?
     let is_active : Bool?

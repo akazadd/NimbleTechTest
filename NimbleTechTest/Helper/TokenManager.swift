@@ -51,7 +51,7 @@ class TokenManager {
 			}
 	}
 
-	private func saveRefreshToken(_ token: String) {
+	func saveRefreshToken(_ token: String) {
 		do {
 			try keychain.set(token, key: defaultKeys.refreshTokenKey)
 		} catch {

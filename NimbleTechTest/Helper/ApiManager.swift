@@ -15,6 +15,7 @@ enum APIError: Error {
 	case parsingError
 	case noNetwork
 	case invalidGrant
+	case notFound
     //more error case as needed
 }
 
@@ -45,8 +46,8 @@ struct Connectivity {
 }
 
 class ApiManager {
-    private var tokenManager = TokenManager()
-    
+	var tokenManager = TokenManager()
+	
 	func callApi<T: Decodable>(urlString: String,
 							   method: HTTPMethod,
 							   parameters: Parameters?,
@@ -62,28 +63,35 @@ class ApiManager {
 			return HTTPHeaders(["Authorization": "Bearer \(accessToken)"])
 		}
 		
-		AF.request(urlString, method: method, parameters: parameters, encoding: JSONEncoding.default, headers: updateAuthorizationHeader(tokenManager.getAccessToken()))
-			.validate()
-			.responseDecodable(of: T.self) { [weak self] response in
-				guard let self = self else { return }
-				
-				switch response.result {
-					case .success(let decodedObject):
-						completion(.success(decodedObject))
-						
-					case .failure(let error):
-						print("error: \(error)")
-						
-						if let statusCode = response.response?.statusCode, statusCode == 401 {
-							self.handleTokenExpiration(urlString: urlString, method: method, parameters: parameters, completion: completion)
-						} else if let statusCode = response.response?.statusCode, statusCode == 400 {
-							completion(.failure(.invalidGrant))
-						} else {
-							completion(.failure(.parsingError))
-						}
-						
-				}
+		
+		AF.request(urlString,
+				   method: method,
+				   parameters: parameters,
+				   encoding: JSONEncoding.default,
+				   headers: updateAuthorizationHeader(tokenManager.getAccessToken()))
+		.validate()
+		.responseDecodable(of: T.self) { [weak self] response in
+			guard let self = self else { return }
+			
+			switch response.result {
+				case .success(let decodedObject):
+					completion(.success(decodedObject))
+					
+				case .failure(let error):
+					print("error: \(error)")
+					
+					if let statusCode = response.response?.statusCode, statusCode == 401 {
+						self.handleTokenExpiration(urlString: urlString, method: method, parameters: parameters, completion: completion)
+					} else if let statusCode = response.response?.statusCode, statusCode == 400 {
+						completion(.failure(.invalidGrant))
+					} else if let statusCode = response.response?.statusCode, statusCode == 404 {
+						completion(.failure(.notFound))
+					} else {
+						completion(.failure(.parsingError))
+					}
+					
 			}
+		}
 	}
 	
 	private func handleTokenExpiration<T: Decodable>(urlString: String, method: HTTPMethod,parameters: Parameters?,completion: @escaping (Result<T, APIError>) -> Void) {

@@ -87,6 +87,7 @@
  
  */
 import Foundation
+import KeychainAccess
 
 struct LoginRequestInfo {
 	var email: String
@@ -161,7 +162,8 @@ class LoginViewModel {
 			guard let self = self else { return }
 			
 			switch result {
-				case .success(_):
+				case .success(let response):
+					apiManager.tokenManager.saveRefreshToken((response.data?.attributes?.refreshToken)!)
 					DispatchQueue.main.async { [weak self] in
 						self?.onLoginSuccess?()
 					}
@@ -178,6 +180,8 @@ class LoginViewModel {
 							errorMessage = "No internet connection"
 						case .invalidGrant:
 							errorMessage = "Your email or password is incorrect"
+						case .notFound:
+							errorMessage = "Not found"
 					}
 					DispatchQueue.main.async { [weak self] in
 						self?.onLoginFailure?(errorMessage + ", please try again!")

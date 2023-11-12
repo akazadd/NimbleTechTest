@@ -201,9 +201,31 @@
                     <view key="view" contentMode="scaleToFill" id="CUn-ep-wJv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="EWp-hH-Laz">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AZd-aW-tKS">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="bYt-me-Sbg"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="EWp-hH-Laz" firstAttribute="top" secondItem="CUn-ep-wJv" secondAttribute="top" id="5fT-IB-yPt"/>
+                            <constraint firstItem="EWp-hH-Laz" firstAttribute="leading" secondItem="bYt-me-Sbg" secondAttribute="leading" id="E8q-Rh-VvA"/>
+                            <constraint firstItem="bYt-me-Sbg" firstAttribute="trailing" secondItem="EWp-hH-Laz" secondAttribute="trailing" id="Owt-wN-iYq"/>
+                            <constraint firstAttribute="bottom" secondItem="EWp-hH-Laz" secondAttribute="bottom" id="U1h-pM-Jke"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="EWp-hH-Laz" id="mIH-ea-wUm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jtc-5g-uMh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

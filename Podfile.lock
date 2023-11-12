@@ -1,4 +1,5 @@
 PODS:
+  - AdvancedPageControl (0.9.0)
   - Alamofire (5.8.1)
   - AMShimmer (1.0.6)
   - KeychainAccess (4.2.2)
@@ -8,6 +9,7 @@ PODS:
   - MDFInternationalization (3.0.0)
 
 DEPENDENCIES:
+  - AdvancedPageControl
   - Alamofire
   - AMShimmer
   - KeychainAccess
@@ -16,6 +18,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - AdvancedPageControl
     - Alamofire
     - AMShimmer
     - KeychainAccess
@@ -24,6 +27,7 @@ SPEC REPOS:
     - MDFInternationalization
 
 SPEC CHECKSUMS:
+  AdvancedPageControl: 39e3b32b00b2d324c534f8e17cc6c5be9abe84b7
   Alamofire: 3ca42e259043ee0dc5c0cdd76c4bc568b8e42af7
   AMShimmer: 681eeaaedf9fc4e390e95e9dd6fe59df947cfee0
   KeychainAccess: c0c4f7f38f6fc7bbe58f5702e25f7bd2f65abf51
@@ -31,6 +35,6 @@ SPEC CHECKSUMS:
   MaterialComponents: 1a9b2d9d45b1601ae544de85089adc4c464306d4
   MDFInternationalization: d697c55307816222a55685c4ccb1044ffb030c12
 
-PODFILE CHECKSUM: e107f35c7efc56cb10df80e303a66fa66fcc50f3
+PODFILE CHECKSUM: c7db4fc160e6b1757556d2fc9e6b811190705fd4
 
 COCOAPODS: 1.13.0

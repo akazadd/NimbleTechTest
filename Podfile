@@ -10,6 +10,7 @@ target 'NimbleTechTest' do
   pod 'Kingfisher', '7.6.1'
   pod 'Alamofire'
   pod 'MaterialComponents/PageControl'
+  pod 'AdvancedPageControl'
 
   # Pods for NimbleTechTest
 
