@@ -8,6 +8,7 @@
 import UIKit
 import AMShimmer
 import Kingfisher
+import MaterialComponents
 
 protocol ScrollViewDelegate {
 	func optionChanged(to option: Survey)
@@ -89,8 +90,7 @@ class HomeViewController: UIViewController {
 			surveyView.pageControl.numberOfPages = data.count
 			surveyView.pageControl.currentPage = i
 			
-			let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didReceiveTap(sender:)))
-			surveyView.pageControl.addGestureRecognizer(tapGesture)
+			surveyView.pageControl.addTarget(self, action: #selector(onPageControlTap(_:)), for: .valueChanged)
 			
 			scrollview.addSubview(surveyView)
 		}
@@ -187,15 +187,12 @@ class HomeViewController: UIViewController {
     }
 	
 	@objc
-	func onPageControlTap(_ sender: UIPageControl) {
+	func onPageControlTap(_ sender: MDCPageControl) {
 		
-		self.scrollview
-			.scrollRectToVisible(CGRect(
-				x: Int(self.scrollview.frame.size.width) * sender.currentPage,
-				y: 0,
-				width:Int(self.scrollview.frame.size.width),
-				height: Int(self.scrollview.frame.size.height)),
-								 animated: true)
+		print("page \(sender.currentPage) is selected")
+		var offset = scrollview.contentOffset
+		offset.x = CGFloat(sender.currentPage) * scrollview.bounds.size.width;
+		scrollview.setContentOffset(offset, animated: true)
 	}
     
     @objc private func handleRefresh(_ sender: Any) {

@@ -8,7 +8,8 @@ target 'NimbleTechTest' do
   pod 'KeychainAccess'
   pod 'AMShimmer'
   pod 'Kingfisher', '7.6.1'
-	pod 'Alamofire'
+  pod 'Alamofire'
+  pod 'MaterialComponents/PageControl'
 
   # Pods for NimbleTechTest
 

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MaterialComponents
 
 class SurveyView: UIView {
     @IBOutlet var contentView: UIView!
@@ -16,9 +17,13 @@ class SurveyView: UIView {
     @IBOutlet weak var actionButton: UIButton!
     @IBOutlet weak var queryLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var pageControl: UIPageControl!
+//    @IBOutlet weak var pageControl: UIPageControl!
     
-    override init(frame: CGRect) {
+//	@IBOutlet weak var pageControl: CustomPageControl!
+	
+	var pageControl = MDCPageControl()
+	
+	override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
     }
@@ -46,5 +51,15 @@ class SurveyView: UIView {
 		
 		queryLabel.font = UIFont(name: "NeuzeitSLTStd-Book", size: 17)?.withWeight(UIFont.Weight(rawValue: 400))
 		queryLabel.letterSpacing = -0.41
+		
+		pageControl.translatesAutoresizingMaskIntoConstraints = false
+		self.backgroundImgView.addSubview(pageControl)
+		
+		NSLayoutConstraint.activate([
+			pageControl.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+			pageControl.bottomAnchor.constraint(equalTo: titleLabel.topAnchor),
+			pageControl.heightAnchor.constraint(equalToConstant: 40)
+		])
+		
     }
 }
