@@ -28,17 +28,22 @@ class LoginViewController: UIViewController {
 		// Set up ViewModel callbacks
 		viewModel.onLoginSuccess = { [weak self] in
 			guard let self = self else { return }
-			self.loginButton.hideLoading()
+			self.loginButton.isEnabled = true
 			self.router.perform(.login, from: self)
 		}
 		
 		viewModel.onLoginFailure = { [weak self] errorMessage in
 			guard let self = self else { return }
-			self.loginButton.hideLoading()
+			self.loginButton.isEnabled = true
 			self.showAlert(title: "Ooops!", message: errorMessage, completionHandler: nil)
 		}
 		
     }
+	
+	override func viewDidDisappear(_ animated: Bool) {
+		super.viewDidDisappear(animated)
+		loginButton.isEnabled = true
+	}
     
     private func configureUI() {
         [emailTextField,passwordTextField] .forEach { textfield in
@@ -65,7 +70,7 @@ class LoginViewController: UIViewController {
 extension LoginViewController {
 	@objc func onLoginButtonTap() {
 		self.view.endEditing(true)
-		loginButton.showLoading()
+		loginButton.isEnabled = false
 		
 		viewModel.validateAndLogin(email: emailTextField.text, password: passwordTextField.text)
 	}

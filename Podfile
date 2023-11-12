@@ -6,11 +6,9 @@ target 'NimbleTechTest' do
   use_frameworks!
 
   pod 'KeychainAccess'
-  pod 'AMShimmer'
   pod 'Kingfisher', '7.6.1'
   pod 'Alamofire'
-  pod 'MaterialComponents/PageControl'
-  pod 'AdvancedPageControl'
+  pod 'SkeletonView'
 
   # Pods for NimbleTechTest
 

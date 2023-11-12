@@ -16,12 +16,18 @@ class SurveyCollectionViewCell: UICollectionViewCell {
 	@IBOutlet weak var actionButton: UIButton!
 	@IBOutlet weak var queryLabel: UILabel!
 	@IBOutlet weak var titleLabel: UILabel!
-//    @IBOutlet weak var pageControl: UIPageControl!
 	@IBOutlet weak var pageControl: CustomPageControl!
 
 	override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+		setCornerRadius()
     }
+	
+	func setCornerRadius() {
+		userImgView.layer.cornerRadius = userImgView.frame.width/2
+		actionButton.layer.cornerRadius = actionButton.frame.width/2
+		pageControl.isHidden = true
+	}
 
 }
